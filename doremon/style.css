@@ -1,0 +1,1757 @@
+/* Created by Arushi Singhania */
+
+/* Created by Arushi Singhania */
+/* corrected/debugged and improved by visph */
+
+/* improvements: centered drawing and responsive size */
+body {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100vw;
+    height:100vh;
+    max-height:100vh;
+    overflow:hidden;
+    margin:0;
+/*background:crimson;*/
+}
+#dora {
+    transform-origin:50% 50%;
+    transform:scale(1);
+/*background:gainsboro;*/
+}
+@media all and (max-height:500px) {
+    #dora { transform:scale(0.75); /*background:whitesmoke;*/ }
+}
+@media all and (max-height:380px) {
+    #dora { transform:scale(0.5); /*background:cyan;*/ }
+}
+@media all and (min-height:750px) {
+    #dora { transform:scale(1.5); /*background:white;*/ }
+}
+@media all and (min-height:1000px) {
+    #dora { transform:scale(2); /*background:pink;*/ }
+}
+
+/* debug: outlines */
+/*
+div { outline:2px solid transparent; }
+
+#dora { outline-color:darkred; outline-style:dotted; }
+
+.circle_0_0 { outline-color:silver; outline-style:dashed; }
+.circle_1_0 { outline-color:gray; outline-style:dashed; }
+
+#eyeL, #eyeR { outline-color:red; }
+#chon1 , #chon2 { outline-color:pink; }
+
+#nose { outline-color:purple; }
+#undernose { outline-color:magenta; }
+
+#uekibati1 { outline-color:darkslategray; }
+#uekibati2 { outline-color:slategray; }
+
+#six1 { outline-color:limegreen; }
+#six1 .circle2 { outline-color:lime; }
+#six2 { outline-color:royalblue; }
+#six2 .circle2 { outline-color:cyan; }
+
+#ufo1 { outline-color:olive; }
+#ufo2 { outline-color:yellow; }
+
+#bodyR { outline-color:crimson; }
+#bodyL { outline-color:brown; }
+
+.ike { outline-color:olive; }
+#ike2 { outline-color:orange; }
+
+#fune0 { outline-color:crimson; }
+#fune1 { outline-color:orangered; }
+
+#mouse0 { outline-color:darkgreen; }
+#mouse1 { outline-color:green; }
+
+.hige { outline-color:yellow; }
+
+#six1 .circle_0_0 { outline-color:green; }
+#six2 .circle_0_0 { outline-color:blue; }
+#ufo1 .circle_0_0 { outline-color:orange; }
+#ufo1 .circle_1_0 { outline-color:darkorange; }
+#ufo2 > div { outline-color:orangered; }
+#ufoL > div { outline-color:pink; }
+#ufoL_1 > div { outline-color:magenta; outline-style:dotted; }
+#ufoR > div { outline-color:salmon; }
+#ufoR_1 > div { outline-color:red; outline-style:dotted; }
+*/
+
+/* debug: hide selected parts */
+/*
+#eyeL, #eyeR,
+#nose, #undernose,
+#uekibati1, #uekibati1_2, #uekibati1_3, #uekibati2,
+#six1, #six2, #six1_0, #six2_0,
+#ufo1, #ufo2, #ufoR, #ufoL, #ufoR_1, #ufoL_1,
+#bodyR, #bodyL,
+#ike, #ike2, #ikeR, #ikeL,
+#fune0, #fune1,
+#mouse0, #mouse1,
+#idge, #idge0, #idge1, #idge2, #idge3, #idge4, #idge5 {
+    display:none;
+}
+*/
+
+/* root wrappers explicit sizes: dev/debug steps helper */
+/*
+#eyeL, #eyeR { width:60px; height:60px; }
+#nose { width:40px; height:40px; }
+#uekibati1 { width : 240px; height : 240px; }
+#uekibati2 { width : 270px; height : 270px; }
+#six1 { width : 270px; height : 270px; }
+#six2 { width : 270px; height : 270px; }
+#ufo1 { width : 40px; height : 40px; }
+.ike { width : 70px; height : 70px; }
+#ike2 { width : 120px; height : 120px; }
+#fune1 { width : 82px; height : 82px; }
+#mouse1 { width : 130px; height : 130px; }
+*/
+
+/* Created by Arushi Singhania / fixed by visph
+https://code.sololearn.com/W7ypjzOxJ8cH/?ref=app
+https://www.sololearn.com/Discuss/1067096/?ref=app
+*/
+
+body { /* explicit size for #dora rather than body */
+/*    width : 330px; height : 490px;*/
+    background-color : white;
+}
+
+#dora { /* explicit size for #dora rather than body */
+    width : 330px; height : 490px;
+}
+
+#dora, #dora  * {
+    position : absolute;
+/*    overflow : hidden;*/
+}
+
+#dora .circle {
+    /* best practice to avoid use of '!important' by giving more weighted selector than previous declaration */
+    overflow : visible/* !important*/ ;
+}
+
+.circle2 { width : 200px; height : 200px; }
+
+.circle_0 {
+    width : 50%; height : 100%;
+    left :0 ; top : 0;
+overflow:hidden;
+}
+
+.circle_0_0 {
+    width : 100%; height : 100%;
+    left : 100%; top : 0;
+    -webkit-transform-origin : 0  50%;
+    -moz-transform-origin : 0  50%;
+    -o-transform-origin : 0  50%;
+    -ms-transform-origin : 0  50%;
+    transform-origin : 0  50%;
+overflow:hidden;
+}
+
+.circle_0_0 > div { left : -100% ; top : 0; }
+
+.circle_1 {
+    width : 50%; height : 100%;
+    left : 50%; top : 0;
+overflow:hidden;
+}
+
+.circle_1_0 {
+    width : 100%; height : 100%;
+    left : -100%; top : 0;
+    -webkit-transform-origin : 100%  50%;
+    -moz-transform-origin : 100%  50%;
+    -o-transform-origin : 100%  50%;
+    -ms-transform-origin : 100%  50%;
+    transform-origin : 100%  50%;
+overflow:hidden;
+}
+
+.circle_1_0 > div { left : 0; top : 0; }
+
+.circle_0_0 > div, .circle_1_0 > div {
+    border : 5px  solid  #000000;
+    border-radius : 50%;
+}
+
+.straight { width : 5px; }
+
+.straight >  div {
+    width : 100%;
+    left : 0; top : 0;
+    background-color : #000000;
+}
+
+/* ***********************************************
+ Parts
+*************************************************
+/ ************************************************
+    Circle and breakfast
+*********************************************** */
+
+#eyeL, #eyeR {
+    -webkit-transform : scale(1,1.4);
+    -moz-transform : scale(1,1.4);
+    -o-transform : scale(1,1.4);
+    -ms-transform : scale(1,1.4);
+    transform : scale(1,1.4);
+}
+
+#eyeL { left : 100px; top : 30px; }
+
+#eyeR { left : 155px; top : 30px; }
+
+.eye .circle2 { width : 60px; height : 60px; }
+
+.eye > div > div > div > div { width : 50px; height : 50px; }
+
+#chon1, #chon2 {
+    top : 30px;
+    width : 15px; height : 15px;
+    background-color : #000000;
+    border-radius : 100%;
+    -webkit-transform : scale(0);
+    -moz-transform : scale(0);
+    -o-transform : scale(0);
+    -ms-transform : scale(0);
+    transform : scale(0);
+}
+
+#chon1 { left : 37px; }
+
+#chon2 { left : 8px; }
+
+/* ***********************************************
+    Too much for yourself
+*********************************************** */
+
+#nose { left : 137px; top : 100px; }
+
+#nose .circle2 { width : 40px; height : 40px; }
+
+#nose > div > div > div > div { width : 30px; height : 30px; }
+
+#undernose {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    height : 30px/* !important*/;
+    left : 155px; top : 136px;
+}
+
+/* ***********************************************
+    Flowerpot - Flowerpot
+*********************************************** */
+
+#uekibati1 { left : 55px; top : 40px; }
+
+#uekibati1 .circle2 {
+    width : 240px; height : 240px;
+    -webkit-transform : rotate(37deg);
+    -moz-transform : rotate(37deg);
+    -o-transform : rotate(37deg);
+    -ms-transform : rotate(37deg);
+    transform : rotate(37deg);
+}
+
+#uekibati1 > div > div > div > div { width : 230px; height : 230px; }
+
+#uekibati1_2 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    height : 120px/* !important*/;
+    left : 155px; top : 193px;
+    -webkit-transform : rotate(90deg);
+    -moz-transform : rotate(90deg);
+    -o-transform : rotate(90deg);
+    -ms-transform : rotate(90deg);
+    transform : rotate(90deg);
+}
+
+#uekibati1_3 { left : 22px; top : 40px; }
+
+#uekibati1_3 .circle2 {
+    width : 240px; height : 240px;
+    -webkit-transform : rotate(217deg);
+    -moz-transform : rotate(217deg);
+    -o-transform : rotate(217deg);
+    -ms-transform : rotate(217deg);
+    transform : rotate(217deg);
+}
+
+#uekibati1_3 > div > div > div > div { width : 230px; height : 230px; }
+
+
+#uekibati2 { left : 23px; top : 0; }
+
+#uekibati2 .circle2 {
+    width : 270px; height : 270px;
+    -webkit-transform : rotate(25deg);
+    -moz-transform : rotate(25deg);
+    -o-transform : rotate(25deg);
+    -ms-transform : rotate(25deg);
+    transform : rotate(25deg);
+}
+
+#uekibati2 > div > div > div > div { width : 260px; height : 260px; }
+
+/* ***********************************************
+    In the rug
+*********************************************** */
+
+#six1 {
+    left : 10px; top : 240px;
+    -webkit-transform : scale(1,1.2);
+    -moz-transform : scale(1,1.2);
+    -o-transform : scale(1,1.2);
+    -ms-transform : scale(1,1.2);
+    transform : scale(1,1.2);
+}
+
+#six1 .circle2 {
+    width : 270px; height : 270px;
+    -webkit-transform : rotate(-20deg);
+    -moz-transform : rotate(-20deg);
+    -o-transform : rotate(-20deg);
+    -ms-transform : rotate(-20deg);
+    transform : rotate(-20deg);
+}
+
+#six1 > div > div > div > div { width : 260px; height : 260px; }
+
+#six2 {
+    left : 35px; top : 240px;
+    -webkit-transform : scale(1,1.2);
+    -moz-transform : scale(1,1.2);
+    -o-transform : scale(1,1.2);
+    -ms-transform : scale(1,1.2);
+    transform : scale(1,1.2);
+}
+
+#six2 .circle2 {
+    width : 270px; height : 270px;
+    -webkit-transform : rotate(-160deg);
+    -moz-transform : rotate(-160deg);
+    -o-transform : rotate(-160deg);
+    -ms-transform : rotate(-160deg);
+    transform : rotate(-160deg);
+}
+
+#six2 > div > div > div > div { width : 260px; height : 260px; }
+
+
+
+#six1_0 { left : 18px; top : 320px; }
+
+#six1_0 .circle2 {
+    width : 70px; height : 70px;
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-transform : rotate(-70deg)/* !important*/;
+    -moz-transform : rotate(-70deg)/* !important*/;
+    -o-transform : rotate(-70deg)/* !important*/;
+    -ms-transform : rotate(-70deg)/* !important*/;
+    transform : rotate(-70deg)/* !important*/;
+}
+
+#six1_0 > div > div > div > div { width : 60px; height : 60px; }
+
+#six2_0 { left : 228px; top : 320px; }
+
+#six2_0 .circle2 {
+    width : 70px; height : 70px;
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-transform : rotate(-110deg)/* !important*/;
+    -moz-transform : rotate(-110deg)/* !important*/;
+    -o-transform : rotate(-110deg)/* !important*/;
+    -ms-transform : rotate(-110deg)/* !important*/;
+    transform : rotate(-110deg)/* !important*/;
+}
+
+#six2_0 > div > div > div > div { width : 60px; height : 60px; }
+
+/* ***********************************************
+    UFO
+*********************************************** */
+
+#ufo1 { left : 137px; top : 252px; }
+
+#ufo1 .circle2 { width : 40px; height : 40px; }
+
+#ufo1 > div > div > div > div { width : 30px; height : 30px; }
+
+#ufo2 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    height : 32px/* !important*/;
+    left : 156px; top : 260px;
+    -webkit-transform : rotate(90deg);
+    -moz-transform : rotate(90deg);
+    -o-transform : rotate(90deg);
+    -ms-transform : rotate(90deg);
+    transform : rotate(90deg);
+}
+
+/* ***********************************************
+    Let's go and say this one
+*********************************************** */
+
+#ufoL {
+    height : 50px;
+    left : 198px; top : 250px;
+    -webkit-transform : rotate(-90deg);
+    -moz-transform : rotate(-90deg);
+    -o-transform : rotate(-90deg);
+    -ms-transform : rotate(-90deg);
+    transform : rotate(-90deg);
+}
+
+#ufoL_1 {
+    height : 20px;
+    left : 225px; top :257px;
+    -webkit-transform : rotate(180deg);
+    -moz-transform : rotate(180deg);
+    -o-transform : rotate(180deg);
+    -ms-transform : rotate(180deg);
+    transform : rotate(180deg);
+}
+
+#ufoR {
+    height : 50px;
+    left : 111px; top : 250px;
+    -webkit-transform : rotate(90deg);
+    -moz-transform : rotate(90deg);
+    -o-transform : rotate(90deg);
+    -ms-transform : rotate(90deg);
+    transform : rotate(90deg);
+}
+
+#ufoR_1 {
+    height : 20px;
+    left : 88px; top : 257px;
+    -webkit-transform : rotate(180deg);
+    -moz-transform : rotate(180deg);
+    -o-transform : rotate(180deg);
+    -ms-transform : rotate(180deg);
+    transform : rotate(180deg);
+}
+
+/* ***********************************************
+    Awesome
+*********************************************** */
+#bodyR {
+    height : 155px;
+    left : 85px; top : 270px;
+    -webkit-transform : rotate(2deg);
+    -moz-transform : rotate(2deg);
+    -o-transform : rotate(2deg);
+    -ms-transform : rotate(2deg);
+    transform : rotate(2deg);
+}
+
+#bodyL {
+    height : 155px;
+    left : 228px; top : 270px;
+    -webkit-transform : rotate(-2deg);
+    -moz-transform : rotate(-2deg);
+    -o-transform : rotate(-2deg);
+    -ms-transform : rotate(-2deg);
+    transform : rotate(-2deg);
+}
+
+/* ***********************************************
+    Two sisters could be made
+*********************************************** */
+.ike {
+    -webkit-transform : scale(1.4,0.8);
+    -moz-transform : scale(1.4,0.8);
+    -o-transform : scale(1.4,0.8);
+    -ms-transform : scale(1.4,0.8);
+    transform : scale(1.4,0.8);
+}
+
+#ikeR {
+    left : 61px; top : 420px;
+}
+
+#ikeL {
+    left : 157px; top : 420px;
+}
+
+.ike .circle2 {
+    width : 70px; height : 70px;
+}
+
+.ike > div > div > div > div {
+    width : 60px; height : 60px;
+}
+
+/* ***********************************************
+    If you wish to go to a damn shake
+*********************************************** */
+#ike2 {
+    left : 98px; top : 255px;
+    -webkit-transform : scale(1,1.2);
+    -moz-transform : scale(1,1.2);
+    -o-transform : scale(1,1.2);
+    -ms-transform : scale(1,1.2);
+    transform : scale(1,1.2);
+}
+
+#ike2 .circle2 {
+    width : 120px; height : 120px;
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-transform : rotate(40deg)/* !important*/;
+    -moz-transform : rotate(40deg)/* !important*/;
+    -o-transform : rotate(40deg)/* !important*/;
+    -ms-transform : rotate(40deg)/* !important*/;
+    transform : rotate(40deg)/* !important*/;
+}
+
+#ike2 > div > div > div > div { width : 110px; height : 110px; }
+
+#fune0 {
+    height : 82px !important;
+    left : 156px; top : 285px;
+    -webkit-transform : rotate(-90deg);
+    -moz-transform : rotate(-90deg);
+    -o-transform : rotate(-90deg);
+    -ms-transform : rotate(-90deg);
+    transform : rotate(-90deg);
+}
+
+#fune1 { left : 117px; top : 285px; }
+
+#fune1 .circle2 {
+    width : 82px; height : 82px;
+    -webkit-transform : rotate(-90deg);
+    -moz-transform : rotate(-90deg);
+    -o-transform : rotate(-90deg);
+    -ms-transform : rotate(-90deg);
+    transform : rotate(-90deg);
+}
+
+#fune1 > div > div > div > div { width : 72px; height : 72px; }
+
+/* ***********************************************
+    Probably Mikagi was rising
+*********************************************** */
+#mouse0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    height : 130px/* !important*/;
+    left : 156px; top : 100px;
+    -webkit-transform : rotate(-90deg);
+    -moz-transform : rotate(-90deg);
+    -o-transform : rotate(-90deg);
+    -ms-transform : rotate(-90deg);
+    transform : rotate(-90deg);
+}
+
+#mouse1 { left : 93px; top : 100px; }
+
+#mouse1 .circle2 {
+    width : 130px; height : 130px;
+    -webkit-transform : rotate(-90deg);
+    -moz-transform : rotate(-90deg);
+    -o-transform : rotate(-90deg);
+    -ms-transform : rotate(-90deg);
+    transform : rotate(-90deg);
+}
+
+#mouse1 > div > div > div > div { width : 120px; height : 120px; }
+
+/* ***********************************************
+    If you put beard, do not miss it
+*********************************************** */
+.hige { height : 60px; }
+
+#hige0, #hige5 {
+    -webkit-transform : rotate(-80deg);
+    -moz-transform : rotate(-80deg);
+    -o-transform : rotate(-80deg);
+    -ms-transform : rotate(-80deg);
+    transform : rotate(-80deg);
+}
+
+#hige1, #hige4 {
+    -webkit-transform : rotate(-90deg);
+    -moz-transform : rotate(-90deg);
+    -o-transform : rotate(-90deg);
+    -ms-transform : rotate(-90deg);
+    transform : rotate(-90deg);
+}
+
+#hige2, #hige3 {
+    -webkit-transform : rotate(-100deg);
+    -moz-transform : rotate(-100deg);
+    -o-transform : rotate(-100deg);
+    -ms-transform : rotate(-100deg);
+    transform : rotate(-100deg);
+}
+
+#hige0 { left : 70px; top : 80px; }
+
+#hige1 { left : 70px; top : 100px; }
+
+#hige2 { left : 70px; top : 120px; }
+
+#hige3 { left : 240px; top : 80px; }
+
+#hige4 { left : 240px; top : 100px; }
+
+#hige5 { left : 240px; top : 120px; }
+
+
+
+
+/* ***********************************************
+ Animations
+*********************************************** */
+
+.circle_0_0, .circle_1_0 {
+    -webkit-animation-name : circle_anim180;
+    -webkit-animation-timing-function : linear;
+    -webkit-animation-fill-mode : forwards;
+    -webkit-animation-iteration-count : 1;
+    -moz-animation-name : circle_anim180;
+    -moz-animation-timing-function : linear;
+    -moz-animation-fill-mode : forwards;
+    -moz-animation-iteration-count : 1;
+    -o-animation-name : circle_anim180;
+    -o-animation-timing-function : linear;
+    -o-animation-fill-mode : forwards;
+    -o-animation-iteration-count : 1;
+    -ms-animation-name : circle_anim180;
+    -ms-animation-timing-function : linear;
+    -ms-animation-fill-mode : forwards;
+    -ms-animation-iteration-count : 1;
+    animation-name : circle_anim180;
+    animation-timing-function : linear;
+    animation-fill-mode : forwards;
+    animation-iteration-count : 1;
+}
+
+.straight > div {
+    -webkit-animation-name : straight_anim;
+    -webkit-animation-timing-function : linear;
+    -webkit-animation-fill-mode : forwards;
+    -webkit-animation-iteration-count : 1;
+    -moz-animation-name : straight_anim;
+    -moz-animation-timing-function : linear;
+    -moz-animation-fill-mode : forwards;
+    -moz-animation-iteration-count : 1;
+    -o-animation-name : straight_anim;
+    -o-animation-timing-function : linear;
+    -o-animation-fill-mode : forwards;
+    -o-animation-iteration-count : 1;
+    -ms-animation-name : straight_anim;
+    -ms-animation-timing-function : linear;
+    -ms-animation-fill-mode : forwards;
+    -ms-animation-iteration-count : 1;
+    animation-name : straight_anim;
+    animation-timing-function : linear;
+    animation-fill-mode : forwards;
+    animation-iteration-count : 1;
+}
+
+#chon1, #chon2 {
+    -webkit-animation-name : chon_anim;
+    -webkit-animation-fill-mode : forwards;
+    -moz-animation-name : chon_anim;
+    -moz-animation-fill-mode : forwards;
+    -o-animation-name : chon_anim;
+    -o-animation-fill-mode : forwards;
+    -ms-animation-name : chon_anim;
+    -ms-animation-fill-mode : forwards;
+    animation-name : chon_anim;
+    animation-fill-mode : forwards;
+}
+
+
+
+@-webkit-keyframes circle_anim180 {
+0% { -webkit-transform : rotate(0); transform : rotate(0);}
+100% { -webkit-transform : rotate(180deg); transform : rotate(180deg);}
+}
+@-moz-keyframes circle_anim180 {
+0% { -moz-transform : rotate(0); transform : rotate(0);}
+100% { -moz-transform : rotate(180deg); transform : rotate(180deg);}
+}
+@-o-keyframes circle_anim180 {
+0% { -o-transform : rotate(0); transform : rotate(0);}
+100% { -o-transform : rotate(180deg); transform : rotate(180deg);}
+}
+@keyframes circle_anim180 {
+0% { -ms-transform : rotate(0); transform : rotate(0);}
+100% { -ms-transform : rotate(180deg); transform : rotate(180deg);}
+}
+
+@-webkit-keyframes circle_anim180m {
+0% { -webkit-transform : rotate(0); transform : rotate(0);}
+100% { -webkit-transform : rotate(-180deg); transform : rotate(-180deg);}
+}
+@-moz-keyframes circle_anim180m {
+0% { -moz-transform : rotate(0); transform : rotate(0);}
+100% { -moz-transform : rotate(-180deg); transform : rotate(-180deg);}
+}
+@-o-keyframes circle_anim180m {
+0% { -o-transform : rotate(0); transform : rotate(0);}
+100% { -o-transform : rotate(-180deg); transform : rotate(-180deg);}
+}
+@keyframes circle_anim180m {
+0% { -ms-transform : rotate(0); transform : rotate(0);}
+100% { -ms-transform : rotate(-180deg); transform : rotate(-180deg);}
+}
+
+@-webkit-keyframes circle_anim50 {
+0% { -webkit-transform : rotate(0); transform : rotate(0);}
+100% { -webkit-transform : rotate(50deg); transform : rotate(50deg);}
+}
+@-moz-keyframes circle_anim50 {
+0% { -moz-transform : rotate(0); transform : rotate(0);}
+100% { -moz-transform : rotate(50deg); transform : rotate(50deg);}
+}
+@-o-keyframes circle_anim50 {
+0% { -o-transform : rotate(0); transform : rotate(0);}
+100% { -o-transform : rotate(50deg); transform : rotate(50deg);}
+}
+@keyframes circle_anim50 {
+0% { -ms-transform : rotate(0); transform : rotate(0);}
+100% { -ms-transform : rotate(50deg); transform : rotate(50deg);}
+}
+
+@-webkit-keyframes circle_anim50m {
+0% { -webkit-transform : rotate(0); transform : rotate(0);}
+100% { -webkit-transform : rotate(-50deg); transform : rotate(-50deg);}
+}
+@-moz-keyframes circle_anim50m {
+0% { -moz-transform : rotate(0); transform : rotate(0);}
+100% { -moz-transform : rotate(-50deg); transform : rotate(-50deg);}
+}
+@-o-keyframes circle_anim50m {
+0% { -o-transform : rotate(0); transform : rotate(0);}
+100% { -o-transform : rotate(-50deg); transform : rotate(-50deg);}
+}
+@keyframes circle_anim50m {
+0% { -ms-transform : rotate(0); transform : rotate(0);}
+100% { -ms-transform : rotate(-50deg); transform : rotate(-50deg);}
+}
+
+@-webkit-keyframes circle_anim100 {
+0% { -webkit-transform : rotate(0); transform : rotate(0);}
+100% { -webkit-transform : rotate(100deg); transform : rotate(100deg);}
+}
+@-moz-keyframes circle_anim100 {
+0% { -moz-transform : rotate(0); transform : rotate(0);}
+100% { -moz-transform : rotate(100deg); transform : rotate(100deg);}
+}
+@-o-keyframes circle_anim100 {
+0% { -o-transform : rotate(0); transform : rotate(0);}
+100% { -o-transform : rotate(100deg); transform : rotate(100deg);}
+}
+@keyframes circle_anim100 {
+0% { -ms-transform : rotate(0); transform : rotate(0);}
+100% { -ms-transform : rotate(100deg); transform : rotate(100deg);}
+}
+
+@-webkit-keyframes circle_anim105 {
+0% { -webkit-transform : rotate(0); transform : rotate(0);}
+100% { -webkit-transform : rotate(105deg); transform : rotate(105deg);}
+}
+@-moz-keyframes circle_anim105 {
+0% { -moz-transform : rotate(0); transform : rotate(0);}
+100% { -moz-transform : rotate(105deg); transform : rotate(105deg);}
+}
+@-o-keyframes circle_anim105 {
+0% { -o-transform : rotate(0); transform : rotate(0);}
+100% { -o-transform : rotate(105deg); transform : rotate(105deg);}
+}
+@keyframes circle_anim105 {
+0% { -ms-transform : rotate(0); transform : rotate(0);}
+100% { -ms-transform : rotate(105deg); transform : rotate(105deg);}
+}
+
+@-webkit-keyframes circle_anim130 {
+0% { -webkit-transform : rotate(0); transform : rotate(0);}
+100% { -webkit-transform : rotate(130deg); transform : rotate(130deg);}
+}
+@-moz-keyframes circle_anim130 {
+0% { -moz-transform : rotate(0); transform : rotate(0);}
+100% { -moz-transform : rotate(130deg); transform : rotate(130deg);}
+}
+@-o-keyframes circle_anim130 {
+0% { -o-transform : rotate(0); transform : rotate(0);}
+100% { -o-transform : rotate(130deg); transform : rotate(130deg);}
+}
+@keyframes circle_anim130 {
+0% { -ms-transform : rotate(0); transform : rotate(0);}
+100% { -ms-transform : rotate(130deg); transform : rotate(130deg);}
+}
+
+@-webkit-keyframes chon_anim {
+0% { -webkit-transform : scale(0); transform : scale(0);}
+100% { -webkit-transform : scale(1); transform : scale(1);}
+}
+@-moz-keyframes chon_anim {
+0% { -moz-transform : scale(0); transform : scale(0);}
+100% { -moz-transform : scale(1); transform : scale(1);}
+}
+@-o-keyframes  chon_anim {
+0% { -o-transform : scale(0); transform : scale(0);}
+100% { -o-transform : scale(1); transform : scale(1);}
+}
+@keyframes chon_anim {
+0% { -ms-transform : scale(0); transform : scale(0);}
+100% { -ms-transform : scale(1); transform : scale(1);}
+}
+
+@-webkit-keyframes straight_anim {
+0% { height : 0;} 100% { height : 100%;}
+}
+@-moz-keyframes straight_anim {
+0% { height : 0;} 100% { height : 100%;}
+}
+@-o-keyframes straight_anim {
+0% { height : 0;} 100% { height : 100%;}
+}
+@keyframes straight_anim {
+0% { height : 0;} 100% { height : 100%;}
+}
+
+
+#eyeL .circle_0_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#eyeL .circle_1_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#chon1 {
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#eyeR .circle_0_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#eyeR .circle_1_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#chon2 {
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#nose .circle_0_0 {
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#nose .circle_1_0 {
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#undernose  >  div {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#uekibati1_3 .circle_0_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim105/* !important*/;
+    -moz-animation-name : circle_anim105/* !important*/;
+    -o-animation-name : circle_anim105/* !important*/;
+    -ms-animation-name : circle_anim105/* !important*/;
+    animation-name : circle_anim105/* !important*/;
+    -webkit-animation-duration : 900ms;
+    -moz-animation-duration : 900ms;
+    -o-animation-duration : 900ms;
+    -ms-animation-duration : 900ms;
+    animation-duration : 900ms;
+}
+
+#uekibati1_2 >  div {
+    -webkit-animation-duration : 800ms;
+    -moz-animation-duration : 800ms;
+    -o-animation-duration : 800ms;
+    -ms-animation-duration : 800ms;
+    animation-duration : 800ms;
+}
+
+#uekibati1 .circle_0_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim105/* !important*/;
+    -moz-animation-name : circle_anim105/* !important*/;
+    -o-animation-name : circle_anim105/* !important*/;
+    -ms-animation-name : circle_anim105/* !important*/;
+    animation-name : circle_anim105/* !important*/;
+    -webkit-animation-duration : 900ms;
+    -moz-animation-duration : 900ms;
+    -o-animation-duration : 900ms;
+    -ms-animation-duration : 900ms;
+    animation-duration : 900ms;
+}
+
+#uekibati2 .circle_0_0 {
+    -webkit-animation-duration : 1100ms;
+    -moz-animation-duration : 1100ms;
+    -o-animation-duration : 1100ms;
+    -ms-animation-duration : 1100ms;
+    animation-duration : 1100ms;
+}
+
+#uekibati2 .circle_1_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim130/* !important*/;
+    -moz-animation-name : circle_anim130/* !important*/;
+    -o-animation-name : circle_anim130/* !important*/;
+    -ms-animation-name : circle_anim130/* !important*/;
+    animation-name : circle_anim130/* !important*/;
+    -webkit-animation-duration : 750ms;
+    -moz-animation-duration : 750ms;
+    -o-animation-duration : 750ms;
+    -ms-animation-duration : 750ms;
+    animation-duration : 750ms;
+}
+
+#six1 .circle_0_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim50m/* !important*/;
+    -moz-animation-name : circle_anim50m/* !important*/;
+    -o-animation-name : circle_anim50m/* !important*/;
+    -ms-animation-name : circle_anim50m/* !important*/;
+    animation-name : circle_anim50m/* !important*/;
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#six1_0 .circle_0_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim180m/* !important*/;
+    -moz-animation-name : circle_anim180m/* !important*/;
+    -o-animation-name : circle_anim180m/* !important*/;
+    -ms-animation-name : circle_anim180m/* !important*/;
+    animation-name : circle_anim180m/* !important*/;
+    -webkit-animation-duration : 400ms;
+    -moz-animation-duration : 400ms;
+    -o-animation-duration : 400ms;
+    -ms-animation-duration : 400ms;
+    animation-duration : 400ms;
+}
+
+#six1_0 .circle_1_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim180m/* !important*/;
+    -moz-animation-name : circle_anim180m/* !important*/;
+    -o-animation-name : circle_anim180m/* !important*/;
+    -ms-animation-name : circle_anim180m/* !important*/;
+    animation-name : circle_anim180m/* !important*/;
+    -webkit-animation-duration : 400ms;
+    -moz-animation-duration : 400ms;
+    -o-animation-duration : 400ms;
+    -ms-animation-duration : 400ms;
+    animation-duration : 400ms;
+}
+
+#six2 .circle_0_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim50/* !important*/;
+    -moz-animation-name : circle_anim50/* !important*/;
+    -o-animation-name : circle_anim50/* !important*/;
+    -ms-animation-name : circle_anim50/* !important*/;
+    animation-name : circle_anim50/* !important*/;
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#six2_0 .circle_0_0 {
+    -webkit-animation-duration : 400ms;
+    -moz-animation-duration : 400ms;
+    -o-animation-duration : 400ms;
+    -ms-animation-duration : 400ms;
+    animation-duration : 400ms;
+}
+
+#six2_0 .circle_1_0 {
+    -webkit-animation-duration : 400ms;
+    -moz-animation-duration : 400ms;
+    -o-animation-duration : 400ms;
+    -ms-animation-duration : 400ms;
+    animation-duration : 400ms;
+}
+
+#ufo1 .circle_0_0 {
+    -webkit-animation-duration : 550ms;
+    -moz-animation-duration : 550ms;
+    -o-animation-duration : 550ms;
+    -ms-animation-duration : 550ms;
+    animation-duration : 550ms;
+}
+
+#ufo1 .circle_1_0 {
+    -webkit-animation-duration : 550ms;
+    -moz-animation-duration : 550ms;
+    -o-animation-duration : 550ms;
+    -ms-animation-duration : 550ms;
+    animation-duration : 550ms;
+}
+
+#ufo2 > div {
+    -webkit-animation-duration : 200ms;
+    -moz-animation-duration : 200ms;
+    -o-animation-duration : 200ms;
+    -ms-animation-duration : 200ms;
+    animation-duration : 200ms;
+}
+
+#ufoL > div {
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#ufoL_1 > div {
+    -webkit-animation-duration : 200ms;
+    -moz-animation-duration : 200ms;
+    -o-animation-duration : 200ms;
+    -ms-animation-duration : 200ms;
+    animation-duration : 200ms;
+}
+
+#ufoR > div {
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#ufoR_1 > div {
+    -webkit-animation-duration : 200ms;
+    -moz-animation-duration : 200ms;
+    -o-animation-duration : 200ms;
+    -ms-animation-duration : 200ms;
+    animation-duration : 200ms;
+}
+
+#bodyR > div {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#bodyL > div {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#ikeR .circle_0_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#ikeR .circle_1_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#ikeL .circle_0_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#ikeL .circle_1_0 {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#ike2 .circle_1_0 {
+    -webkit-animation-duration : 900ms;
+    -moz-animation-duration : 900ms;
+    -o-animation-duration : 900ms;
+    -ms-animation-duration : 900ms;
+    animation-duration : 900ms;
+}
+
+#ike2 .circle_0_0 {
+    /* best practice to avoid use of '!important'
+    ... all the more that's unnecessary here */
+    -webkit-animation-name : circle_anim100/* !important*/;
+    -moz-animation-name : circle_anim100/* !important*/;
+    -ms-animation-name : circle_anim100/* !important*/;
+    -o-animation-name : circle_anim100/* !important*/;
+    animation-name : circle_anim100/* !important*/;
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;
+    animation-duration : 500ms;
+}
+
+#fune0 > div {
+    -webkit-animation-duration : 800ms;
+    -moz-animation-duration : 800ms;
+    -o-animation-duration : 800ms;
+    -ms-animation-duration : 800ms;
+    animation-duration : 800ms;
+}
+
+#fune1 .circle_0_0, #fune1 .circle_1_0 { /* missing second one */
+    -webkit-animation-duration : 1300ms; /* tiny quickest (-100ms) */
+    -moz-animation-duration : 1300ms;
+    -o-animation-duration : 1300ms;
+    -ms-animation-duration : 1300ms;
+    animation-duration : 1300ms;
+}
+
+#mouse0 > div {
+    -webkit-animation-duration : 1000ms;
+    -moz-animation-duration : 1000ms;
+    -o-animation-duration : 1000ms;
+    -ms-animation-duration : 1000ms;
+    animation-duration : 1000ms;
+}
+
+#mouse1 .circle_0_0 {
+    -webkit-animation-duration : 1700ms;
+    -moz-animation-duration : 1700ms;
+    -o-animation-duration : 1700ms;
+    -ms-animation-duration : 1700ms;
+    animation-duration : 1700ms;
+}
+
+[id^=hige] > div {
+    -webkit-animation-duration : 500ms;
+    -moz-animation-duration : 500ms;        
+    -o-animation-duration : 500ms;
+    -ms-animation-duration : 500ms;        
+    animation-duration : 500ms;
+}
+
+/* animations delays -- modified to start sooner (-6s) */
+
+#eyeL .circle_0_0 {
+    -webkit-animation-delay : 500ms;
+    -moz-animation-delay : 500ms;
+    -o-animation-delay : 500ms;
+    -ms-animation-delay : 500ms;
+    animation-delay : 500ms;
+}
+
+#eyeL .circle_1_0 {
+    -webkit-animation-delay : 1200ms;
+    -moz-animation-delay : 1200ms;
+    -o-animation-delay : 1200ms;
+    -ms-animation-delay : 1200ms;
+    animation-delay : 1200ms;
+}
+
+#chon1 {
+    -webkit-animation-delay : 1900ms;
+    -moz-animation-delay : 1900ms;
+    -o-animation-delay : 1900ms;
+    -ms-animation-delay : 1900ms;
+    animation-delay : 1900ms;
+}
+
+#eyeR .circle_0_0 {
+    -webkit-animation-delay : 2900ms;
+    -moz-animation-delay : 2900ms;
+    -o-animation-delay : 2900ms;
+    -ms-animation-delay : 2900ms;
+    animation-delay : 2900ms;
+}
+
+#eyeR .circle_1_0 {
+    -webkit-animation-delay : 3600ms;
+    -moz-animation-delay : 3600ms;
+    -o-animation-delay : 3600ms;
+    -ms-animation-delay : 3600ms;
+    animation-delay : 3600ms;
+}
+
+#chon2 {
+    -webkit-animation-delay : 4300ms;
+    -moz-animation-delay : 4300ms;
+    -o-animation-delay : 4300ms;
+    -ms-animation-delay : 4300ms;
+    animation-delay : 4300ms;
+}
+
+#nose .circle_0_0 {
+    -webkit-animation-delay : 5300ms;
+    -moz-animation-delay : 5300ms;
+    -o-animation-delay : 5300ms;
+    -ms-animation-delay : 5300ms;
+    animation-delay : 5300ms;
+}
+
+#nose .circle_1_0 {
+    -webkit-animation-delay : 5800ms;
+    -moz-animation-delay : 5800ms;
+    -o-animation-delay : 5800ms;
+    -ms-animation-delay : 5800ms;
+    animation-delay : 5800ms;
+}
+
+#undernose > div {
+    -webkit-animation-delay : 6800ms;
+    -moz-animation-delay : 6800ms;
+    -o-animation-delay : 6800ms;
+    -ms-animation-delay : 6800ms;
+    animation-delay : 6800ms;
+}
+
+#uekibati1_3 .circle_0_0 {
+    -webkit-animation-delay : 7850ms;
+    -moz-animation-delay : 7850ms;
+    -o-animation-delay : 7850ms;
+    -ms-animation-delay : 7850ms;
+    animation-delay : 7850ms;
+}
+
+#uekibati1_2 > div {
+    -webkit-animation-delay : 8750ms;
+    -moz-animation-delay : 8750ms;
+    -o-animation-delay : 8750ms;
+    -ms-animation-delay : 8750ms;
+    animation-delay : 8750ms;
+}
+
+#uekibati1 .circle_0_0 {
+    -webkit-animation-delay : 9550ms;
+    -moz-animation-delay : 9550ms;
+    -o-animation-delay : 9550ms;
+    -ms-animation-delay : 9550ms;
+    animation-delay : 9550ms;
+}
+
+#uekibati2 .circle_0_0 {
+    -webkit-animation-delay : 10850ms;
+    -moz-animation-delay : 10850ms;
+    -o-animation-delay : 10850ms;
+    -ms-animation-delay : 10850ms;
+    animation-delay : 10850ms;
+}
+
+#uekibati2 .circle_1_0 {
+    -webkit-animation-delay : 11950ms;
+    -moz-animation-delay : 11950ms;
+    -o-animation-delay : 11950ms;
+    -ms-animation-delay : 11950ms;
+    animation-delay : 11950ms;
+}
+
+#six1 .circle_0_0 {
+    -webkit-animation-delay : 13200ms;
+    -moz-animation-delay : 13200ms;
+    -o-animation-delay : 13200ms;
+    -ms-animation-delay : 13200ms;
+    animation-delay : 13200ms;
+}
+
+#six1_0 .circle_0_0 {
+    -webkit-animation-delay : 13700ms;
+    -moz-animation-delay : 13700ms;
+    -o-animation-delay : 13700ms;
+    -ms-animation-delay : 13700ms;
+    animation-delay : 13700ms;
+}
+
+#six1_0 .circle_1_0 {
+    -webkit-animation-delay : 14100ms;
+    -moz-animation-delay : 14100ms;
+    -o-animation-delay : 14100ms;
+    -ms-animation-delay : 14100ms;
+    animation-delay : 14100ms;
+}
+
+#six2 .circle_0_0 {
+    -webkit-animation-delay : 14500ms;
+    -moz-animation-delay : 14500ms;
+    -o-animation-delay : 14500ms;
+    -ms-animation-delay : 14500ms;
+    animation-delay : 14500ms;
+}
+
+#six2_0 .circle_0_0 {
+    -webkit-animation-delay : 14900ms;
+    -moz-animation-delay : 14900ms;
+    -o-animation-delay : 14900ms;
+    -ms-animation-delay : 14900ms ;
+    animation-delay : 14900ms;
+}
+
+#six2_0 .circle_1_0 {
+    -webkit-animation-delay : 15300ms;
+    -moz-animation-delay : 15300ms;
+    -o-animation-delay : 15300ms;
+    -ms-animation-delay : 15300ms ;
+    animation-delay : 15300ms;
+}
+
+#ufo1 .circle_0_0 {
+    -webkit-animation-delay : 16100ms;
+    -moz-animation-delay : 16100ms;
+    -o-animation-delay : 16100ms;
+    -ms-animation-delay : 16100ms;
+    animation-delay : 16100ms;
+}
+
+#ufo1 .circle_1_0 {
+    -webkit-animation-delay : 16650ms;
+    -moz-animation-delay : 16650ms;
+    -o-animation-delay : 16650ms;
+    -ms-animation-delay : 16650ms;
+    animation-delay : 16650ms;
+}
+
+#ufo2 > div {
+    -webkit-animation-delay : 17200ms;
+    -moz-animation-delay : 17200ms;
+    -o-animation-delay : 17200ms;
+    -ms-animation-delay : 17200ms;
+    animation-delay : 17200ms;
+}
+
+#ufoL > div {
+    -webkit-animation-delay : 18400ms;
+    -moz-animation-delay : 18400ms;
+    -o-animation-delay : 18400ms;
+    -ms-animation-delay : 18400ms;
+    animation-delay : 18400ms;
+}
+
+#ufoL_1 > div {
+    -webkit-animation-delay : 18900ms;
+    -moz-animation-delay : 18900ms;
+    -o-animation-delay : 18900ms;
+    -ms-animation-delay : 18900ms;
+    animation-delay : 18900ms;
+}
+
+#ufoR > div {
+    -webkit-animation-delay : 19100ms;
+    -moz-animation-delay : 19100ms;
+    -o-animation-delay : 19100ms;
+    -ms-animation-delay : 19100ms;
+    animation-delay : 19100ms;
+}
+
+#ufoR_1 > div {
+    -webkit-animation-delay : 19600ms;
+    -moz-animation-delay : 19600ms;
+    -o-animation-delay : 19600ms;
+    -ms-animation-delay : 19600ms;
+    animation-delay : 19600ms;
+}
+
+#bodyR > div {
+    -webkit-animation-delay : 20500ms;
+    -moz-animation-delay : 20500ms;
+    -o-animation-delay : 20500ms;
+    -ms-animation-delay : 20500ms;
+    animation-delay : 20500ms;
+}
+
+#bodyL > div {
+    -webkit-animation-delay : 21200ms;
+    -moz-animation-delay : 21200ms;
+    -o-animation-delay : 21200ms;
+    -ms-animation-delay : 21200ms;
+    animation-delay : 21200ms;
+}
+
+#ikeR .circle_0_0 {
+    -webkit-animation-delay : 22900ms;
+    -moz-animation-delay : 22900ms;
+    -o-animation-delay : 22900ms;
+    -ms-animation-delay : 22900ms;
+    animation-delay : 22900ms;
+}
+
+#ikeR .circle_1_0 {
+    -webkit-animation-delay : 23600ms;
+    -moz-animation-delay : 23600ms;
+    -o-animation-delay : 23600ms;
+    -ms-animation-delay : 23600ms;
+    animation-delay : 23600ms;
+}
+
+#ikeL .circle_0_0 {
+    -webkit-animation-delay : 24500ms;
+    -moz-animation-delay : 24500ms;
+    -o-animation-delay : 24500ms;
+    -ms-animation-delay : 24500ms;
+    animation-delay : 24500ms;
+}
+
+#ikeL .circle_1_0 {
+    -webkit-animation-delay : 25200ms;
+    -moz-animation-delay : 25200ms;
+    -o-animation-delay : 25200ms;
+    -ms-animation-delay : 25200ms;
+    animation-delay : 25200ms;
+}
+
+#ike2 .circle_1_0 { /* -1s */
+    -webkit-animation-delay : 26700ms;
+    -moz-animation-delay : 26700ms;
+    -o-animation-delay : 26700ms;
+    -ms-animation-delay : 26700ms;
+    animation-delay : 26700ms;
+}
+
+#ike2 .circle_0_0 { /* -1s */
+    -webkit-animation-delay : 27600ms;
+    -moz-animation-delay : 27600ms;
+    -o-animation-delay : 27600ms;
+    -ms-animation-delay : 27600ms;
+    animation-delay : 27600ms;
+}
+
+#fune0 > div {
+    -webkit-animation-delay : 29500ms;
+    -moz-animation-delay : 29500ms;
+    -o-animation-delay : 29500ms;
+    -ms-animation-delay : 29500ms;
+    animation-delay : 29500ms;
+}
+
+#fune1 .circle_0_0 {
+    -webkit-animation-delay : 30300ms;
+    -moz-animation-delay : 30300ms;
+    -o-animation-delay : 30300ms;
+    -ms-animation-delay : 30300ms;
+    animation-delay : 30300ms;
+}
+
+#fune1 .circle_1_0 { /* missing this one */
+    -webkit-animation-delay : 31600ms;
+    -moz-animation-delay : 31600ms;
+    -o-animation-delay : 31600ms;
+    -ms-animation-delay : 31600ms;
+    animation-delay : 31600ms;
+}
+
+#mouse0 > div {
+    -webkit-animation-delay : 32900ms;
+    -moz-animation-delay : 32900ms;
+    -o-animation-delay : 32900ms;
+    -ms-animation-delay : 32900ms ;
+    animation-delay : 32900ms;
+}
+
+#mouse1 .circle_0_0 {
+    -webkit-animation-delay : 33900ms;
+    -moz-animation-delay : 33900ms;
+    -o-animation-delay : 33900ms;
+    -ms-animation-delay : 33900ms;
+    animation-delay : 33900ms;
+}
+
+#hige0 > div { /* little sooner (-2s) */
+    -webkit-animation-delay : 35800ms;
+    -moz-animation-delay : 35800ms;
+    -o-animation-delay : 35800ms;
+    -ms-animation-delay : 35800ms;
+    animation-delay : 35800ms;
+}
+
+#hige1 > div {
+    -webkit-animation-delay : 36350ms;
+    -moz-animation-delay : 36350ms;
+    -o-animation-delay : 36350ms;
+    -ms-animation-delay : 36350ms;
+    animation-delay : 36350ms;
+}
+
+#hige2 > div {
+    -webkit-animation-delay : 36900ms;
+    -moz-animation-delay : 36900ms;
+    -o-animation-delay : 36900ms;
+    -ms-animation-delay : 36900ms;
+    animation-delay : 36900ms;
+}
+
+#hige3 > div {
+    -webkit-animation-delay : 37450ms;
+    -moz-animation-delay : 37450ms;
+    -o-animation-delay : 37450ms;
+    -ms-animation-delay : 37450ms;
+    animation-delay : 37450ms;
+}
+
+#hige4 > div {
+    -webkit-animation-delay : 38000ms;
+    -moz-animation-delay : 38000ms;
+    -o-animation-delay : 38000ms;
+    -ms-animation-delay : 38000ms;
+    animation-delay : 38000ms;
+}
+
+#hige5 > div {
+    -webkit-animation-delay : 38550ms;
+    -moz-animation-delay : 38550ms;
+    -o-animation-delay : 38550ms;
+    -ms-animation-delay : 38550ms;
+    animation-delay : 38550ms;
+}
+
+/* improvements: colors */
+
+[id^=hige] { z-index:11; }
+.eye { z-index:10; }
+#nose { z-index:10; }
+[id^=ufo] { z-index:10; }
+#undernose { z-index:10; }
+#mouse0 { z-index:10; }
+#mouse1 { z-index:9; }
+#uekibati1, #uekibati1_2, #uekibati1_3 { z-index:8; }
+#uekibati2 { z-index:6; }
+
+#fune0 { z-index:10; }
+
+.eye > div > div > div > div { background:white; }
+#nose > div > div > div > div { background:#EA0000; }
+#uekibati1 > div > div > div > div,
+#uekibati1_3 > div > div > div > div { background:white; }
+#uekibati2 > div > div > div > div { background:#298ABF; }
+#mouse1 > div > div > div > div { background:#EA0000; }
+#six1 > div > div > div > div,
+#six2 > div > div > div > div { background:#298ABF; }
+#six1_0 > div > div > div > div,
+#six2_0 > div > div > div > div { background:white; }
+
+.ike > div > div > div > div { background:white; }
+#ike2:before,
+#ike2 > div > div > div > div {background:white; }
+#fune1 > div > div > div > div { background:white; }
+
+#ufo1 > div > div > div > div { background:yellow; }
+
+#bodyL > div:before,
+#bodyR > div:before,
+#ike2:before,
+#uekibati1_2 > div:before,
+#uekibati1_2 > div:after {
+    position:absolute;
+    z-index:-1;
+    content:'';
+    -webkit-animation-timing-function : linear;
+    -webkit-animation-fill-mode : forwards;
+    -webkit-animation-iteration-count : 1;
+    -moz-animation-timing-function : linear;
+    -moz-animation-fill-mode : forwards;
+    -moz-animation-iteration-count : 1;
+    -o-animation-timing-function : linear;
+    -o-animation-fill-mode : forwards;
+    -o-animation-iteration-count : 1;
+    -ms-animation-timing-function : linear;
+    -ms-animation-fill-mode : forwards;
+    -ms-animation-iteration-count : 1;
+    animation-timing-function : linear;
+    animation-fill-mode : forwards;
+    animation-iteration-count : 1;
+}
+
+#uekibati1_2 > div:before {
+    right:0;
+    width:170px;
+    background:white;
+    -webkit-animation-name : color_anim1;
+    -moz-animation-name : color_anim1;
+    -o-animation-name : color_anim1;
+    -ms-animation-name : color_anim1;
+    animation-name : color_anim1;
+}
+#uekibati1_2 > div:after {
+    left:5px;
+    top:-10px;
+    width:20px;
+    background:#EA0000;
+    -webkit-animation-name : color_anim2;
+    -moz-animation-name : color_anim2;
+    -o-animation-name : color_anim2;
+    -ms-animation-name : color_anim2;
+    animation-name : color_anim2;
+    animation-delay:18400ms;
+    animation-duration:1400ms;
+}
+#bodyL > div:before,
+#bodyR > div:before {
+    width:80px;
+    background:#298ABF;
+    -webkit-animation-name : color_anim3;
+    -moz-animation-name : color_anim3;
+    -o-animation-name : color_anim3;
+    -ms-animation-name : color_anim3;
+    animation-name : color_anim3;
+}
+#bodyL > div:before {
+    right:0;
+}
+#ike2:before {
+    left:20px;
+    top:17.5px;
+    height:50px;
+    -webkit-animation-name : color_anim4;
+    -moz-animation-name : color_anim4;
+    -o-animation-name : color_anim4;
+    -ms-animation-name : color_anim4;
+    animation-name : color_anim4;
+    -webkit-animation-duration : 300ms;
+    -moz-animation-duration : 300ms;
+    -o-animation-duration : 300ms;
+    -ms-animation-duration : 300ms;
+    animation-duration : 300ms;
+    -webkit-animation-delay : 28000ms;
+    -moz-animation-delay : 28000ms;
+    -o-animation-delay : 28000ms;
+    -ms-animation-delay : 28000ms;
+    animation-delay : 28000ms;
+}
+
+#uekibati1_2 > div:before {
+    -webkit-animation-duration : 800ms;
+    -moz-animation-duration : 800ms;
+    -o-animation-duration : 800ms;
+    -ms-animation-duration : 800ms;
+    animation-duration : 800ms;
+}
+
+#bodyR > div:before {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+#bodyL > div:before {
+    -webkit-animation-duration : 700ms;
+    -moz-animation-duration : 700ms;
+    -o-animation-duration : 700ms;
+    -ms-animation-duration : 700ms;
+    animation-duration : 700ms;
+}
+
+@keyframes color_anim1 {
+    0% { height:0; }
+    100% { height:120px; }
+}
+@keyframes color_anim2 {
+    0% { height:0; }
+    100% { height:135px; }
+}
+@keyframes color_anim3 {
+    0% { height:0; }
+    100% { height:180px; }
+}
+@keyframes color_anim4 {
+    0% { width:0; }
+    100% { width:80px; }
+}
+
+#uekibati1_2 > div:before {
+    -webkit-animation-delay : 8750ms;
+    -moz-animation-delay : 8750ms;
+    -o-animation-delay : 8750ms;
+    -ms-animation-delay : 8750ms;
+    animation-delay : 8750ms;
+}
+
+#bodyR > div:before {
+    -webkit-animation-delay : 20500ms;
+    -moz-animation-delay : 20500ms;
+    -o-animation-delay : 20500ms;
+    -ms-animation-delay : 20500ms;
+    animation-delay : 20500ms;
+}
+
+#bodyL > div:before {
+    -webkit-animation-delay : 21200ms;
+    -moz-animation-delay : 21200ms;
+    -o-animation-delay : 21200ms;
+    -ms-animation-delay : 21200ms;
+    animation-delay : 21200ms;
+}

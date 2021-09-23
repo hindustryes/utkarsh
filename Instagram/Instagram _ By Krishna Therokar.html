@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Instagram | By Utkarsh</title>
+
+
+<meta name="google" content="notranslate">
+<meta property="og:image" content="https://drive.google.com/uc?export=view&amp;id=1wtqCVujPVb8UcVUHz6gX-_gv7UyJ-2t8">
+<link rel="shortcut icon" href="https://drive.google.com/uc?export=view&amp;id=1wtqCVujPVb8UcVUHz6gX-_gv7UyJ-2t8" type="image/x-icon">
+<link rel="apple-touch-icon" href="https://drive.google.com/uc?export=view&amp;id=1wtqCVujPVb8UcVUHz6gX-_gv7UyJ-2t8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Code by Krishna Therokar">
+<meta property="og:title" content="Instagram | By Krishna Therokar">
+<meta property="og:description" content="Code by Krishna Therokar">
+<meta property="og:type" content="website">
+
+<script src="./Instagram _ By Krishna Therokar_files/jquery.min.js.download"></script>
+<link href="./Instagram _ By Krishna Therokar_files/css" rel="stylesheet">
+<link href="./Instagram _ By Krishna Therokar_files/css(1)" rel="stylesheet">
+
+<style>
+
+    :root {
+        --white1: #FFFFFF;
+        --white2: #C2C2C2;
+        --white3: #8C8C8C;
+        --white4: #505050;
+        --white5: #262626;
+        --dark1: #202020;
+        --dark2: #101010;
+        --red1: #ff0100;
+        --yellow1: #FFD300;
+        --green1: #5DFF00;
+        --blue1: #00A6FF;
+        --purple1: #7428FF;
+        --back1: #12212222;
+        --back2: #12212244;
+        --back3: #00000099;
+    }
+
+    * {
+        user-select:none;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+        height:6px;
+        width:8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background: var(--white3);
+    }
+    
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    a {
+        text-decoration:none;
+        color: dodgerblue;
+    }
+    
+    hr {
+        border: 0;
+        height: 1px;
+        background: var(--white4);
+    }
+    
+    svg {
+        cursor: pointer;
+        -webkit-tap-highlight-color: #0000;
+        transition: 100ms all;
+    }
+    
+    svg:active {
+        transform: scale(0.8);
+    }
+
+    body {
+        font-family: 'DM Sans', calibri;
+        font-size:16px;
+        color: var(--white2);
+        background:var(--dark1);
+        margin: 0 0 60px 0;
+    }
+    
+    .sect1 {
+        margin: 20px auto;
+        padding: 16px;
+        max-width: 400px;
+        background: var(--dark2);
+        border-radius: 10px;
+    }
+
+    .sect2 {
+        margin: -8px 0 14px 0;
+        padding: 16px;
+        max-width: 400px;
+        background: var(--dark1);
+    }
+    
+    .loadanim {
+        background: linear-gradient(
+        120deg,
+        var(--dark1) 30%,
+        var(--dark2) 38%,
+        var(--dark2) 40%,
+        var(--dark1) 48%
+        );
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load 1.4s infinite;
+    }
+    
+    @keyframes load{
+        100%{
+            background-position: -100% 0;
+        }
+    }
+    
+    .postimg1 {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+    
+    .postimgwrap {
+        width: 100%;
+        min-height: 200px;
+        padding: 0px;
+        height: auto;
+        border-radius: 4px;
+        margin: 10px 0px;
+    }
+    
+    .avatar1 {
+        border-radius: 100px;
+        height: 100px;
+        width: 100px;
+        display: block;
+    }
+
+    .avatar2 {
+        border-radius: 100px; 
+        height: 50px;
+        width: 50px;
+        display: block;
+    }
+    
+    .storyimg {
+        height: 80px;
+        width: 80px;
+        border-radius: 100px;
+        margin: 0;
+        display: block;
+    }
+    
+    .avatar2holder, .storyholder{
+        background: linear-gradient(90deg,var(--red1),var(--yellow1));
+        border-radius: 100px;
+    }
+    
+    .avatar2holder {
+        margin: -4px 0 0 0;
+        height: 54px;
+        width: 54px;
+        float: left;
+    }
+    
+    .storyholder {
+        margin: 0 10px;
+        height: 84px;
+        width: 84px;
+        min-width: 84px;
+    }
+    
+    .avatar2wrap, .storywrap {
+        margin: 2px 0 0 2px;
+        border-radius: 100px;
+        background: linear-gradient(
+        120deg,
+        var(--dark1) 30%,
+        var(--dark2) 38%,
+        var(--dark2) 40%,
+        var(--dark1) 48%
+        );
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load 1.4s infinite;
+        display: block;
+    }
+    
+    .avatar2wrap {
+        height: 50px;
+        width: 50px;
+    }
+    
+    .storywrap {
+        height: 80px;
+        width: 80px;
+    }
+    
+    .showflex {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .profileinfo1 span {
+        margin: 26px 0 0 0;
+    }
+    
+    .profileinfo1 {
+        text-align: center;
+        max-width: 400px;
+        margin: 0px auto;
+    }
+    
+    .profileinfo2 {
+        max-width: 400px;
+        margin: 0px auto;
+        padding: 0 10px;
+    }
+    
+    input {
+        font-family: calibri;
+        width: 94%;
+        font-size: 14px;
+        letter-spacing: 1.2px;
+        font-weight: 500;
+        color: var(--white2);
+        background: var(--dark1);
+        border: none;
+        padding: 10px;
+        margin: 10px 0 0 0;
+        outline: none;
+        border-radius: 4px;
+    }
+    
+    input:focus {
+        outline: none;
+    }
+    
+    .txtplace .txt4 {
+        color: var(--white1);
+    }
+    
+    .txtplace {
+        background: linear-gradient(140deg,var(--purple1),var(--blue1));
+        padding: 20px;
+        margin: 20px 0;
+        min-height: 200px;
+        text-align: center;
+        border-radius: 4px;
+    }
+    
+    .icon1 {
+        margin: -4px 4px 0px 4px;
+    }
+    
+    .nopost1 {
+        margin: 60px 0 8px 0;
+    }
+
+    .user1 {
+        margin: 8px 4px -6px 4px;
+    }
+    
+    #user2 {
+        margin: 0 10px -4px 0;
+        height: 24px;
+        width: 24px;
+        background: var(--white2);
+        border-radius: 100px;
+    }
+    
+    .lock1 {
+        margin: 4px 4px -2px 4px;
+    }
+    
+    .floatright {
+        float: right;
+    }
+
+    .txt1 {
+        color: var(--white1);
+    }
+
+    .txt2 {
+        color: var(--white2);
+    }
+    
+    .txt3 {
+        color: var(--white3);
+    }
+    
+    .txt4 {
+        color: var(--white2);
+        font-size: 18px;
+    }
+    
+    .txt5 {
+        font-size: 16px;
+    }
+    
+    .txt6 {
+        color: dodgerblue;
+    }
+    
+    .txt7 {
+        color: var(--white1);
+        line-height: 2.2;
+    }
+    
+    .txt8 {
+        color: var(--white4);
+        font-size: 16px;
+    }
+    
+    #camera {
+        max-width: 400px;
+        padding: 40vh 20px 0 20px;
+        margin: 0px auto;
+        text-align: center;
+    }
+    
+    #home1 .topnav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0 10px 14px 10px;
+        z-index: 1000;
+        background: var(--dark2);
+        border-bottom: 1px solid var(--white4);
+    }
+    
+    #bottomnav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background: var(--dark2);
+        border-top: 1px solid var(--white4);
+    }
+    
+    .instatxt1 {
+        text-align: center;
+        display: block;
+        margin: -28px auto;
+    }
+    
+    .styledtxt1 {
+        font-size: 24px;
+        font-family: Sofia;
+        font-weight: 600;
+        background: linear-gradient(90deg,var(--red1),var(--yellow1));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .styledtxt2 {
+        font-size: 16px;
+        font-weight: 600;
+        background: linear-gradient(90deg,var(--red1),var(--yellow1));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    #bottomnav .showflex {
+        float: right;
+    }
+    
+    @media only screen and (min-width: 700px) {
+        #bottomnav .showflex {
+            width: 400px;
+        }
+        
+        #bottomnav .txt3 {
+            display: block;
+            margin: 0 0 -20px 0;
+        }
+        
+        .loadreels {
+            display: none;
+        }
+    }
+    
+    @media only screen and (max-width: 700px) {
+        #bottomnav .showflex {
+            width: 100%;
+        }
+        
+        #bottomnav .txt3 {
+            display: none;
+        }
+
+        .loadreels {
+            width: 100%;
+        }
+    }
+    
+    .showflex .msgholder {
+        width: 74%;
+    }
+    
+    .arrow1 {
+        margin: 0 10px -4px 0;
+        transform: rotate(180deg);
+    }
+    
+    .iconright1 {
+        position: fixed;
+        right: 0;
+        top: 0;
+        margin: 20px;
+    }
+
+    .iconleft1 {
+        position: fixed;
+        left: 0;
+        top: 0;
+        margin: 20px;
+    }
+    
+    .footercam {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+        border-top: 1px solid var(--white4);
+        background: var(--dark2);
+    }
+    
+    .stories1 {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        margin: 0 auto;
+    }
+    
+    .menu1 {
+        margin: 4px 4px 0 0;
+    }
+    
+    .loadingwindow {
+        margin: 40vh 10px 0 10px;
+        font-size: 22px;
+        font-weight: 540;
+        text-align: center;
+    }
+
+    #home1, #notification1, #options1, #messenger1, #explore1 {
+        margin: 10px;
+    }
+    
+    .loadreels {
+        height: 100vh;
+        background: linear-gradient(
+        120deg,
+        var(--dark1) 30%,
+        var(--dark2) 38%,
+        var(--dark2) 40%,
+        var(--dark1) 48%
+        );
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        animation: load 1.4s infinite;
+        margin: 0px auto;
+    }
+    
+    .fixedreel {
+        position: fixed;
+        top:0;
+        height: 100vh;
+        width: 100vw;
+        z-index: -10;
+    }
+    
+    .errortxt {
+        margin: 40vh auto 0 auto;
+        text-align: center;
+        display: block;
+    }
+    
+    .holdsearch {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 16px;
+        background: var(--dark2);
+    }
+    
+    .profiletop {
+        padding: 10px;
+        border-bottom: 1px solid var(--white4);
+    }
+    
+    .profileinfo2 svg {
+        margin: 4px;
+    }
+    
+    #explore1 .txt2 {
+        display: block;
+        margin: 100px auto 40px auto;
+        max-width: 500px;
+        text-align: center;
+    }
+    
+    #explore1, #reels1, #notification1, #home1, #options1, #profile1, #camera, #messenger1, #bottomnav {
+        display: none;
+    }
+
+    .name3 {
+        text-transform: uppercase;
+        font-size:18px;
+        color:var(--white1);
+        font-weight:600;
+    }
+
+    .name4 {
+        font-size:18px;
+        color:var(--white1);
+        font-weight:500;
+    }
+    
+    #input1 {
+        padding:10px;
+        font-size:16px;
+        font-weight:500;
+        outline:none;
+        margin:6px;
+        width:60vw;
+        max-width:300px;
+        color:white;
+        border-radius:2px;
+        background:var(--back1);
+        border:none;
+    }
+    
+    input:focus, button:focus {
+        outline:none;
+    }
+    
+    ::placeholder {
+        color: var(--white1);
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        color: var(--white1);
+    }
+
+    ::-ms-input-placeholder {
+        color: var(--white1);
+    }
+    
+    #button1 {
+        background:var(--back2);
+        border:none;
+        width:30vw;
+        max-width:100px;
+        padding:10px;
+        font-size:14px;
+        margin:6px;
+        font-weight:500;
+        outline:none;
+        border-radius:2px;
+        color:white;
+    }
+
+    #div1, #div2 {
+        background-color: var(blue1);
+        background: linear-gradient(45deg, var(--blue1) 0%, var(--purple1) 100%);
+        background-size:100% 100%;
+        background-attachment:fixed;
+        font-size:18px;
+        padding:20px;
+        color:var(--white1);
+        font-weight:500;
+        max-width: 500px;
+        margin: 0px auto;
+        line-height: 1.8;
+        border-radius: 8px;
+    }
+
+    #div1 {
+        letter-spacing:1px;
+    }
+
+    #div2 {
+        text-align:left;
+        display: none;
+    }
+    
+    @-webkit-keyframes loading {
+        20%, 80% {opacity: 1;}
+    }
+
+    @keyframes loading {
+        20%, 80% {opacity: 1;}
+    }
+
+    #alert_ {
+        display:none;
+        font-size:16px;
+        color:var(--purple1);
+        background: var(--white1);
+        border-radius: 2px;
+        padding:4px;
+        line-height: 1.4;
+        font-weight:600;
+        opacity:0;
+        max-width: 500px;
+        -webkit-animation: loading 2s infinite;
+        animation: loading 2s infinite;
+        -webkit-transition: opacity 600ms;
+        transition: opacity 500ms;
+    }
+    
+    .camerasvg {
+        margin: 8px 0 -8px 0;
+    }
+    
+    .messengersvg {
+        margin: -4px 0 0 0;
+    }
+    
+    .likeicon2 {
+        display: none;
+    }
+    
+    #errorpanel1 {
+        position: fixed;
+        font-size: 16px;
+        bottom: 46px;
+        left: 0;
+        right: 0;
+        padding: 6px 6px;
+        text-align: center;
+        background: var(--white1);
+        z-index: 10;
+        opacity: 0;
+        transition: 500ms all;
+    }
+    
+    .styledtxt3 {
+        font-weight: 900;
+        background: linear-gradient(90deg,var(--purple1),var(--blue1));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .holdicons1 {
+        position: fixed;
+        margin: 10px;
+        bottom: 50px;
+        right: 0;
+        transform: scale(1.2);
+        line-height: 2.8;
+    }
+    
+    .holdreeltxt {
+        position: fixed;
+        margin: 14px;
+        bottom: 50px;
+        left: 0;
+        line-height: 1.4;
+    }
+    
+    .holdreeltxt svg {
+        margin: 0 4px -4px -2px;
+    }
+    
+    #alert1 {
+        background: var(--back3);
+        top: 0px;
+        left:0px;
+        margin: 0px;
+        padding: 0px;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        z-index: 10000;
+        backdrop-filter: blur(2px);
+        position: fixed;
+    }
+    
+    .alertmain {
+        background: var(--white5);
+        padding: 30px 20px;
+        font-size: 16px;
+        color: var(--white1);
+        min-width: 200px;
+        margin: 36vh 10px 10px 10px;
+        max-width: 300px;
+        border-radius: 8px;
+    }
+
+    #btn {
+        font-size: 16px;
+        font-family: calibri;
+        padding: 10px;
+        margin: 0px;
+        border: none;
+        background: var(--white4);
+        color: var(--white1);
+        font-weight: 500;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: 500ms all;
+        -webkit-tap-highlight-color: #0000;
+    }
+    
+    button:focus {
+        outline:none;
+    }
+    
+    #livemessages1 {
+        margin: -10px -10px -60px -10px;
+        display: none;
+    }
+    
+    .livemsgholder1 {
+        margin: 0px auto;
+        padding: 16px;
+        max-width: 400px;
+        background: var(--dark2);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .bottomholder1 {
+        display: flex;
+        justify-content: space-around;
+        margin: -20px 0 0 0;
+    }
+    
+    .bottomholder1 input {
+        width: 100%;
+    }
+    
+    .bottomholder1 button {
+        font-size: 16px;
+        font-family: calibri;
+        padding: 9px;
+        max-height: 40px;
+        margin: 10px 0 0 10px;
+        border: none;
+        background: var(--blue1);
+        color: var(--white1);
+        font-weight: 500;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: 500ms all;
+        -webkit-tap-highlight-color: #0000;
+    }
+    
+    #chatarea1 {
+        margin: 14px 0 0 0;
+        padding: 10px;
+        background: var(--dark1);
+        height: 70vh;
+        overflow: scroll;
+        scroll-behavior: smooth;
+    }
+    
+    .whitespace1 {
+        width: 100%;
+    }
+    
+    .innermsghold1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .innermsg1 {
+        background: linear-gradient(140deg,var(--purple1),var(--blue1));
+        background-size: contain;
+        padding: 10px;
+        border-radius: 10px;
+        border-bottom-right-radius: 0px;
+        margin: 4px 0;
+        max-width: 200px;
+        word-wrap: break-word;
+    }
+
+    .innermsg2 {
+        background: var(--dark2);
+        background-size: contain;
+        padding: 10px;
+        border-radius: 10px;
+        border-bottom-left-radius: 0px;
+        margin: 4px 0;
+        max-width: 200px;
+        word-wrap: break-word;
+    }
+
+</style>
+
+</head>
+
+<body id="body1">
+
+<script>
+
+function createmessage1(iid, imgsrc, username, message){
+    document.getElementById(iid).innerHTML += '<section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="'+imgsrc+'" onerror=this.style.opacity="0"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">'+username+'</span><br><span class="txt3">'+message+'</span></span></section><br>';
+}
+
+function createnotif1(iid, username, content, time){
+    document.getElementById(iid).innerHTML += '<section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></g></svg><span class="txt3"><span class="txt1">'+username+'</span> '+content+' <span class="txt8">'+time+'</span></span></section>';
+}
+
+function createstory1(iid, imgsrc){
+    document.getElementById(iid).innerHTML += '<section class="storyholder"><section class="storywrap"><img class="storyimg" src="'+imgsrc+'" onerror=this.style.opacity="0"></section></section>';
+}
+
+function createpost1(iid, username1, txtpost, caption, username2, comment){
+    document.getElementById(iid).innerHTML += '<section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></g></svg><span class="txt1">'+username1+'</span><br><section class="txtplace likepost1"><span class="txt4">'+txtpost+'</span></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"/></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" class="_8-yf5 " fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">'+caption+'</span><br><hr><span class="txt1">'+username2+' </span><span class="txt3">'+comment+'</span><br></section>';
+}
+
+function createpost2(iid, username1, imgsrc, caption, username2, comment){
+    document.getElementById(iid).innerHTML += '<section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></g></svg><span class="txt1">'+username1+'</span><br><section class="loadanim postimgwrap"><img class="postimg1 likepost1" src="'+imgsrc+'" onerror=this.src="https://drive.google.com/uc?export=view&id=1THHRCR4aeY8Gg2qwDpWL7pJ8Ua6QbNmT"></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"/></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" class="_8-yf5 " fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">'+caption+'</span><br><hr><span class="txt1">'+username2+' </span><span class="txt3">'+comment+'</span><br></section>';
+}
+
+</script>
+
+<center><section id="alert1">
+
+<section class="alertmain">
+
+<section>You can access messenger by swiping just like insta and approx all icons are working!</section><br>
+<button id="btn">Next</button>
+
+</section>
+
+</section></center>
+
+<section id="explore1" style="display: none;">
+
+<section class="holdsearch"><input placeholder="Search"><br></section>
+<span class="txt2">An error occured!<br><br>We are trying to fix it. Until then, enjoy with our special feature. You just need to enter your name below!</span>
+
+<center>
+
+<section id="div1">
+
+<form id="form1"><input id="input1" type="text" placeholder="Enter Your First Name" autocomplete="off" maxlength="10" required=""><button type="submit" id="button1">Submit</button></form>
+
+<br><div id="alert_"></div>
+
+</section>
+
+<section id="div2">
+
+<section id="div22"></section>
+
+</section>
+
+
+</center>
+
+</section>
+
+<section id="reels1" style="display: none;"></section>
+
+<section id="messenger1" style="display: none;">
+
+<section id="livemessages1">
+<section class="livemsgholder1">
+<svg onclick="returnmsg1()" class="arrow1" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve" fill="var(--white2)"><g><g><path d="M484.14,226.886L306.46,49.202c-5.072-5.072-11.832-7.856-19.04-7.856c-7.216,0-13.972,2.788-19.044,7.856l-16.132,16.136    c-5.068,5.064-7.86,11.828-7.86,19.04c0,7.208,2.792,14.2,7.86,19.264L355.9,207.526H26.58C11.732,207.526,0,219.15,0,234.002    v22.812c0,14.852,11.732,27.648,26.58,27.648h330.496L252.248,388.926c-5.068,5.072-7.86,11.652-7.86,18.864    c0,7.204,2.792,13.88,7.86,18.948l16.132,16.084c5.072,5.072,11.828,7.836,19.044,7.836c7.208,0,13.968-2.8,19.04-7.872    l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,484.14,226.886z"></path></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+</svg>
+<img id="user2" src="https://project3bykt.blogspot.com/" onerror="this.style.display=&quot;none&quot;" style="display: none;"><span id="user4567">Username</span><br>
+
+<section id="chatarea1"></section>
+
+<br><form id="form2" class="bottomholder1"><input id="inputformsg" type="text" autocomplete="off" placeholder="Type a message" required=""><button type="submit">Send</button></form>
+</section></section>
+
+
+<section id="swipearea2" class="sect1">
+
+<svg onclick="home10()" class="arrow1" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve" fill="var(--white2)"><g><g><path d="M484.14,226.886L306.46,49.202c-5.072-5.072-11.832-7.856-19.04-7.856c-7.216,0-13.972,2.788-19.044,7.856l-16.132,16.136    c-5.068,5.064-7.86,11.828-7.86,19.04c0,7.208,2.792,14.2,7.86,19.264L355.9,207.526H26.58C11.732,207.526,0,219.15,0,234.002    v22.812c0,14.852,11.732,27.648,26.58,27.648h330.496L252.248,388.926c-5.068,5.072-7.86,11.652-7.86,18.864    c0,7.204,2.792,13.88,7.86,18.948l16.132,16.084c5.072,5.072,11.828,7.836,19.044,7.836c7.208,0,13.968-2.8,19.04-7.872    l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,484.14,226.886z"></path></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+</svg><span class="txt1">Krishnatheorkar</span><br><br>
+<input placeholder="Search people"><br><br>
+
+<script>
+
+createmessage1("swipearea2", "https://1.bp.blogspot.com/-jajK-TY6WC4/YLml6JlaahI/AAAAAAAAOKE/v8NAjzpXxBMxYxesCOKcrwblcAmpzEUewCLcBGAsYHQ/s150/190645734_845195769685854_2822695765092769860_n.jpg", "<span class='txt200'>Krishna Therokar</span>", "Sent just now");
+createmessage1("swipearea2", "https://api.sololearn.com/Uploads/Avatars/10107008.jpg", "Amit", "Sent 2m ago");
+createmessage1("swipearea2", "https://api.sololearn.com/Uploads/Avatars/9151475.jpg", "Amardeep", "Seen 6m ago");
+
+</script><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/20596770.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567"><span class="txt200">Krishna Therokar</span></span><br><span class="txt3">Sent just now</span></span></section><br><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/10107008.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">Amit</span><br><span class="txt3">Sent 2m ago</span></span></section><br><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/9151475.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">Amardeep</span><br><span class="txt3">Seen 6m ago</span></span></section><br>
+
+<section class="sect2"><center><span class="styledtxt3">You can even send messages!</span></center></section>
+
+<script>
+
+createmessage1("swipearea2", "https://api.sololearn.com/Uploads/Avatars/18088635.jpg", "Suhana", "Sent 10m ago");
+createmessage1("swipearea2", "https://1.bp.blogspot.com/-jajK-TY6WC4/YLml6JlaahI/AAAAAAAAOKE/v8NAjzpXxBMxYxesCOKcrwblcAmpzEUewCLcBGAsYHQ/s150/190645734_845195769685854_2822695765092769860_n.jpg", "Anshika", "Seen 12m ago");
+createmessage1("swipearea2", "https://api.sololearn.com/Uploads/Avatars/20697368.jpg", "Manya", "Seen 20m ago");
+createmessage1("swipearea2", "https://api.sololearn.com/Uploads/Avatars/18772045.jpg", "Harsh", "Sent 2h ago");
+createmessage1("swipearea2", "https://api.sololearn.com/Uploads/Avatars/7109620.jpg", "SR", "Sent 14h ago");
+createmessage1("swipearea2", "https://api.sololearn.com/Uploads/Avatars/18717961.jpg", "Anmol", "Seen 2d ago");
+
+</script><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/d400a2e7-cb6c-4eb4-ad01-f1d349c5c275.webp" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">Suhana</span><br><span class="txt3">Sent 10m ago</span></span></section><br><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/1.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">Anshika</span><br><span class="txt3">Seen 12m ago</span></span></section><br><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/599368ef-eac7-4741-b023-bf7e985d9a41.webp" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">Manya</span><br><span class="txt3">Seen 20m ago</span></span></section><br><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/18772045.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">Harsh</span><br><span class="txt3">Sent 2h ago</span></span></section><br><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/7109620.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">SR</span><br><span class="txt3">Sent 14h ago</span></span></section><br><section class="showflex msgholder375"><section class="avatar2holder"><section class="avatar2wrap"><img class="avatar2" src="./Instagram _ By Krishna Therokar_files/18717961.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><br><span class="msgholder"><span class="txt2 usernameholder4567">Anmol</span><br><span class="txt3">Seen 2d ago</span></span></section><br>
+
+</section>
+
+</section>
+
+<section id="camera" style="display: none;">
+
+<svg class="iconleft1" height="22px" width="22px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 456.556 456.556" style="enable-background:new 0 0 456.556 456.556;" xml:space="preserve" fill="var(--white2)"><g><path d="M97.564,79.443H13.428C6.011,79.443,0,73.428,0,66.015s6.011-13.428,13.428-13.428h84.136   c7.417,0,13.428,6.015,13.428,13.428S104.981,79.443,97.564,79.443z"></path><path d="M145.643,127.518c-33.916,0-61.507-27.591-61.507-61.504c0-33.92,27.591-61.511,61.507-61.511s61.507,27.591,61.507,61.511   C207.15,99.928,179.559,127.518,145.643,127.518z M145.643,31.36c-19.107,0-34.651,15.547-34.651,34.654   s15.544,34.647,34.651,34.647s34.651-15.54,34.651-34.647S164.75,31.36,145.643,31.36z"></path><path d="M443.128,79.443H242.433c-7.417,0-13.428-6.015-13.428-13.428s6.011-13.428,13.428-13.428h200.694   c7.417,0,13.428,6.015,13.428,13.428S450.545,79.443,443.128,79.443z"></path><path d="M325.936,289.782c-33.917,0-61.507-27.591-61.507-61.504s27.591-61.504,61.507-61.504s61.507,27.591,61.507,61.504   S359.853,289.782,325.936,289.782z M325.936,193.631c-19.107,0-34.651,15.54-34.651,34.647s15.544,34.647,34.651,34.647   s34.651-15.54,34.651-34.647S345.043,193.631,325.936,193.631z"></path><path d="M229.149,241.706H13.428C6.011,241.706,0,235.691,0,228.278s6.011-13.428,13.428-13.428h215.721   c7.417,0,13.428,6.015,13.428,13.428S236.566,241.706,229.149,241.706z"></path><path d="M443.128,241.706h-69.113c-7.417,0-13.428-6.015-13.428-13.428s6.011-13.428,13.428-13.428h69.113   c7.417,0,13.428,6.015,13.428,13.428S450.545,241.706,443.128,241.706z"></path><path d="M130.62,452.052c-33.916,0-61.507-27.591-61.507-61.511c0-33.913,27.591-61.504,61.507-61.504s61.507,27.591,61.507,61.504   C192.127,424.461,164.536,452.052,130.62,452.052z M130.62,355.894c-19.107,0-34.651,15.54-34.651,34.647   s15.544,34.654,34.651,34.654s34.651-15.547,34.651-34.654S149.727,355.894,130.62,355.894z"></path><path d="M443.128,403.97H227.407c-7.417,0-13.428-6.015-13.428-13.428c0-7.413,6.011-13.428,13.428-13.428h215.721   c7.417,0,13.428,6.015,13.428,13.428C456.556,397.955,450.545,403.97,443.128,403.97z"></path><path d="M82.541,403.97H13.428C6.011,403.97,0,397.955,0,390.541c0-7.413,6.011-13.428,13.428-13.428h69.113   c7.417,0,13.428,6.015,13.428,13.428C95.969,397.955,89.958,403.97,82.541,403.97z"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+<svg onclick="home10()" class="iconright1" height="22px" width="22px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 180.607 180.607" style="enable-background:new 0 0 180.607 180.607;" xml:space="preserve" fill="var(--white2)">
+<path d="M180.607,10.607l-79.696,79.697l79.696,79.697L170,180.607l-79.696-79.696l-79.696,79.696L0,170.001l79.696-79.697L0,10.607  L10.607,0.001l79.696,79.696L170,0.001L180.607,10.607z"></path><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+
+<span class="txt3">An error occured.<br>Instagram cannot access your camera.</span>
+
+<section class="footercam"><span class="txt3">Post</span><span class="txt1">Story</span><span class="txt3">Reels</span></section>
+
+</section>
+    
+<section id="notification1" style="display: none;">
+
+<script>
+
+createnotif1("notification1", "Shruti", "Started following you", "10min");
+createnotif1("notification1", "Deepanjali", "Liked your post", "15min");
+createnotif1("notification1", "Anshika", "Mentioned you in their story", "30min");
+createnotif1("notification1", "Priyanshi", "Liked your comment", "50min");
+createnotif1("notification1", "Suhana", "Sent you a message request", "1h");
+createnotif1("notification1", "Amit", "Liked your reply", "1h");
+createnotif1("notification1", "Divyanshu", "Mentioned you in their  story", "2h");
+createnotif1("notification1", "Riddhi", "Started following you", "4h");
+
+</script><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Shruti</span> Started following you <span class="txt8">10min</span></span></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Deepanjali</span> Liked your post <span class="txt8">15min</span></span></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Anshika</span> Mentioned you in their story <span class="txt8">30min</span></span></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Priyanshi</span> Liked your comment <span class="txt8">50min</span></span></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Suhana</span> Sent you a message request <span class="txt8">1h</span></span></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Amit</span> Liked your reply <span class="txt8">1h</span></span></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Divyanshu</span> Mentioned you in their  story <span class="txt8">2h</span></span></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt3"><span class="txt1">Riddhi</span> Started following you <span class="txt8">4h</span></span></section>
+
+</section>
+
+<section id="options1" style="display: none;">
+
+<section class="sect1">
+
+<input placeholder="Search settings"><br><br>
+
+<span class="txt7">
+Follow and Invite Friends<br>
+Notifications<br>
+Privacy<br>
+Security<br>
+Ads<br>
+Payments<br>
+Account<br>
+Help<br>
+About<br>
+Theme<hr>
+</span>
+<span class="txt6">Accounts Center</span><br>
+<span class="txt8">Control settings for connected experiences accross Instagram, the Facebook app and Messenger, including story and post sharing and logging in.</span><br><br><br>
+<span class="txt1">Logins</span><br><br>
+<span class="txt3">Set up Multi-Account Login</span><br><br>
+<span class="txt6">Add Account</span><br><br>
+<span class="txt6">Log Out</span><br>
+
+</section>
+
+</section>
+
+<section id="profile1" style="display: none;">
+
+<section class="profiletop">
+
+<section class="profileinfo2">hindustryes1<br><span class="txt3"></span><span class="txt6" onclick="openlink()"></span></section>
+
+<svg onclick="options10()" class="floatright menu1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="26px" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="26px" xml:space="preserve" fill="var(--white2)"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"></path></svg>
+
+</section><br>
+
+<section class="showflex profileinfo1 txt5"><img class="avatar1" src="./Instagram _ By Krishna Therokar_files/20596770.jpg"><br><span>0<br>Posts</span><br><span>3000<br>Followers</span><br><span>1<br>Followings</span></section><br>
+
+<section class="profileinfo2">utkarsh rai<br><span class="txt3">Hi its utkarsh rai if you like our project follow us.</span><br><span class="txt6" onclick="openlink()">https://www.instagram.com/hindustryes1/</span></section><br>
+
+<hr><section class="showflex profileinfo2">
+<svg aria-label="Posts" class="_8-yf5 " fill="var(--white2)" height="20px" viewBox="0 0 48 48" width="20px"><path clip-rule="evenodd" d="M45 1.5H3c-.8 0-1.5.7-1.5 1.5v42c0 .8.7 1.5 1.5 1.5h42c.8 0 1.5-.7 1.5-1.5V3c0-.8-.7-1.5-1.5-1.5zm-40.5 3h11v11h-11v-11zm0 14h11v11h-11v-11zm11 25h-11v-11h11v11zm14 0h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11zm14 28h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11z" fill-rule="evenodd"></path></svg><br>
+<svg aria-label="Posts" class="_8-yf5 " fill="var(--white2)" height="20px" viewBox="0 0 48 48" width="20px"><path d="M41 10c-2.2-2.1-4.8-3.5-10.4-3.5h-3.3L30.5 3c.6-.6.5-1.6-.1-2.1-.6-.6-1.6-.5-2.1.1L24 5.6 19.7 1c-.6-.6-1.5-.6-2.1-.1-.6.6-.7 1.5-.1 2.1l3.2 3.5h-3.3C11.8 6.5 9.2 7.9 7 10c-2.1 2.2-3.5 4.8-3.5 10.4v13.1c0 5.7 1.4 8.3 3.5 10.5 2.2 2.1 4.8 3.5 10.4 3.5h13.1c5.7 0 8.3-1.4 10.5-3.5 2.1-2.2 3.5-4.8 3.5-10.4V20.5c0-5.7-1.4-8.3-3.5-10.5zm.5 23.6c0 5.2-1.3 7-2.6 8.3-1.4 1.3-3.2 2.6-8.4 2.6H17.4c-5.2 0-7-1.3-8.3-2.6-1.3-1.4-2.6-3.2-2.6-8.4v-13c0-5.2 1.3-7 2.6-8.3 1.4-1.3 3.2-2.6 8.4-2.6h13.1c5.2 0 7 1.3 8.3 2.6 1.3 1.4 2.6 3.2 2.6 8.4v13zM34.6 25l-9.1 2.8v-3.7c0-.5-.2-.9-.6-1.2-.4-.3-.9-.4-1.3-.2l-11.1 3.4c-.8.2-1.2 1.1-1 1.9.2.8 1.1 1.2 1.9 1l9.1-2.8v3.7c0 .5.2.9.6 1.2.3.2.6.3.9.3.1 0 .3 0 .4-.1l11.1-3.4c.8-.2 1.2-1.1 1-1.9s-1.1-1.2-1.9-1z"></path></svg><br>
+<svg aria-label="Saved" class="_8-yf5 " fill="var(--white2)" height="20" viewBox="0 0 48 48" width="20"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br>
+<svg aria-label="Tagged" class="_8-yf5 " fill="var(--white2)" height="20px" viewBox="0 0 48 48" width="20px"><path d="M41.5 5.5H30.4c-.5 0-1-.2-1.4-.6l-4-4c-.6-.6-1.5-.6-2.1 0l-4 4c-.4.4-.9.6-1.4.6h-11c-3.3 0-6 2.7-6 6v30c0 3.3 2.7 6 6 6h35c3.3 0 6-2.7 6-6v-30c0-3.3-2.7-6-6-6zm-29.4 39c-.6 0-1.1-.6-1-1.2.7-3.2 3.5-5.6 6.8-5.6h12c3.4 0 6.2 2.4 6.8 5.6.1.6-.4 1.2-1 1.2H12.1zm32.4-3c0 1.7-1.3 3-3 3h-.6c-.5 0-.9-.4-1-.9-.6-5-4.8-8.9-9.9-8.9H18c-5.1 0-9.4 3.9-9.9 8.9-.1.5-.5.9-1 .9h-.6c-1.7 0-3-1.3-3-3v-30c0-1.7 1.3-3 3-3h11.1c1.3 0 2.6-.5 3.5-1.5L24 4.1 26.9 7c.9.9 2.2 1.5 3.5 1.5h11.1c1.7 0 3 1.3 3 3v30zM24 12.5c-5.3 0-9.6 4.3-9.6 9.6s4.3 9.6 9.6 9.6 9.6-4.3 9.6-9.6-4.3-9.6-9.6-9.6zm0 16.1c-3.6 0-6.6-2.9-6.6-6.6 0-3.6 2.9-6.6 6.6-6.6s6.6 2.9 6.6 6.6c0 3.6-3 6.6-6.6 6.6z"></path></svg>
+</section><hr>
+
+<center><svg class="nopost1" aria-label="Tagged" fill="var(--white2)" height="50px" viewBox="0 0 48 48" width="50px"><path d="M41.5 5.5H30.4c-.5 0-1-.2-1.4-.6l-4-4c-.6-.6-1.5-.6-2.1 0l-4 4c-.4.4-.9.6-1.4.6h-11c-3.3 0-6 2.7-6 6v30c0 3.3 2.7 6 6 6h35c3.3 0 6-2.7 6-6v-30c0-3.3-2.7-6-6-6zm-29.4 39c-.6 0-1.1-.6-1-1.2.7-3.2 3.5-5.6 6.8-5.6h12c3.4 0 6.2 2.4 6.8 5.6.1.6-.4 1.2-1 1.2H12.1zm32.4-3c0 1.7-1.3 3-3 3h-.6c-.5 0-.9-.4-1-.9-.6-5-4.8-8.9-9.9-8.9H18c-5.1 0-9.4 3.9-9.9 8.9-.1.5-.5.9-1 .9h-.6c-1.7 0-3-1.3-3-3v-30c0-1.7 1.3-3 3-3h11.1c1.3 0 2.6-.5 3.5-1.5L24 4.1 26.9 7c.9.9 2.2 1.5 3.5 1.5h11.1c1.7 0 3 1.3 3 3v30zM24 12.5c-5.3 0-9.6 4.3-9.6 9.6s4.3 9.6 9.6 9.6 9.6-4.3 9.6-9.6-4.3-9.6-9.6-9.6zm0 16.1c-3.6 0-6.6-2.9-6.6-6.6 0-3.6 2.9-6.6 6.6-6.6s6.6 2.9 6.6 6.6c0 3.6-3 6.6-6.6 6.6z"></path></svg><br><span class="txt4">No posts yet</span></center>
+
+</section>
+
+<section id="home1" style="display: block;">
+
+<section class="topnav">
+
+<svg class="camerasvg" onclick="camera0()" height="26px" width="26px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 420.8 420.8" style="enable-background:new 0 0 420.8 420.8;" xml:space="preserve" fill="var(--white2)"><g><g><g><path d="M406.8,96.4c-8.4-8.8-20-14-33.2-14h-66.4v-0.8c0-10-4-19.6-10.8-26c-6.8-6.8-16-10.8-26-10.8h-120     c-10.4,0-19.6,4-26.4,10.8c-6.8,6.8-10.8,16-10.8,26v0.8h-66c-13.2,0-24.8,5.2-33.2,14c-8.4,8.4-14,20.4-14,33.2v199.2     C0,342,5.2,353.6,14,362c8.4,8.4,20.4,14,33.2,14h326.4c13.2,0,24.8-5.2,33.2-14c8.4-8.4,14-20.4,14-33.2V129.6     C420.8,116.4,415.6,104.8,406.8,96.4z M400,328.8h-0.4c0,7.2-2.8,13.6-7.6,18.4s-11.2,7.6-18.4,7.6H47.2     c-7.2,0-13.6-2.8-18.4-7.6c-4.8-4.8-7.6-11.2-7.6-18.4V129.6c0-7.2,2.8-13.6,7.6-18.4s11.2-7.6,18.4-7.6h77.2     c6,0,10.8-4.8,10.8-10.8V81.2c0-4.4,1.6-8.4,4.4-11.2s6.8-4.4,11.2-4.4h119.6c4.4,0,8.4,1.6,11.2,4.4c2.8,2.8,4.4,6.8,4.4,11.2     v11.6c0,6,4.8,10.8,10.8,10.8H374c7.2,0,13.6,2.8,18.4,7.6s7.6,11.2,7.6,18.4V328.8z"></path><path d="M210.4,130.8c-27.2,0-52,11.2-69.6,28.8c-18,18-28.8,42.4-28.8,69.6s11.2,52,28.8,69.6c18,18,42.4,28.8,69.6,28.8     s52-11.2,69.6-28.8c18-18,28.8-42.4,28.8-69.6s-11.2-52-28.8-69.6C262.4,142,237.6,130.8,210.4,130.8z M264.8,284     c-14,13.6-33.2,22.4-54.4,22.4S170,297.6,156,284c-14-14-22.4-33.2-22.4-54.4c0-21.2,8.8-40.4,22.4-54.4     c14-14,33.2-22.4,54.4-22.4s40.4,8.8,54.4,22.4c14,14,22.4,33.2,22.4,54.4C287.6,250.8,278.8,270,264.8,284z"></path><circle cx="352.8" cy="150" r="19.6"></circle></g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+
+<span class="instatxt1"><span class="styledtxt1">Instagram</span></span>
+
+<svg class="messengersvg floatright" onclick="messenger10()" aria-label="Messenger" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M36.2 16.7L29 22.2c-.5.4-1.2.4-1.7 0l-5.4-4c-1.6-1.2-3.9-.8-5 .9l-6.8 10.7c-.7 1 .6 2.2 1.6 1.5l7.3-5.5c.5-.4 1.2-.4 1.7 0l5.4 4c1.6 1.2 3.9.8 5-.9l6.8-10.7c.6-1.1-.7-2.2-1.7-1.5zM24 1C11 1 1 10.5 1 23.3 1 30 3.7 35.8 8.2 39.8c.4.3.6.8.6 1.3l.2 4.1c0 1 .9 1.8 1.8 1.8.2 0 .5 0 .7-.2l4.6-2c.2-.1.5-.2.7-.2.2 0 .3 0 .5.1 2.1.6 4.3.9 6.7.9 13 0 23-9.5 23-22.3S37 1 24 1zm0 41.6c-2 0-4-.3-5.9-.8-.4-.1-.8-.2-1.3-.2-.7 0-1.3.1-2 .4l-3 1.3V41c0-1.3-.6-2.5-1.6-3.4C6.2 34 4 28.9 4 23.3 4 12.3 12.6 4 24 4s20 8.3 20 19.3-8.6 19.3-20 19.3z"></path></svg>
+
+</section>
+
+<br><br><br>
+
+<section id="storyholder123" class="sect1 stories1">
+
+<script>
+
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/16812836.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/14022015.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/18736943.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/13000293.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/18772045.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/18717961.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/9151475.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/10107008.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/19107895.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/18088635.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/20697368.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/7109620.jpg");
+createstory1("storyholder123", "https://api.sololearn.com/Uploads/Avatars/17555554.jpg");
+</script><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/16812836.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/14022015.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/18736943.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/13000293.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/18772045.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/18717961.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/9151475.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/10107008.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/19107895.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/d400a2e7-cb6c-4eb4-ad01-f1d349c5c275.webp" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/599368ef-eac7-4741-b023-bf7e985d9a41.webp" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/7109620.jpg" onerror="this.style.opacity=&quot;0&quot;"></section></section><section class="storyholder"><section class="storywrap"><img class="storyimg" src="./Instagram _ By Krishna Therokar_files/17555554.jpg" onerror="this.style.opacity=&quot;0&quot;" style="opacity: 0;"></section></section>
+
+</section>
+
+<section id="swipearea1">
+
+<script>
+createpost1("swipearea1", "Ratnil", "<br><br><br>Hey I\'m Ratnil & Today is my Birthday | 2 march", "Hehe!", "utkarsh:", "Happy birthday bro");
+</script><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1">Ratnil</span><br><section class="txtplace likepost1"><span class="txt4"><br><br><br>Hey I'm Ratnil &amp; Utkarsh ka instagram kaisa laga</span></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">Hehe!</span><br><hr><span class="txt1">Krishna: </span><span class="txt3">Happy birthday bro</span><br></section>
+
+<section class="sect1">
+<center><span class="styledtxt3">Double tap on posts to like them!</span></center>
+</section>
+
+<script>
+createpost2("swipearea1", "Harsh", "https://qphs.fs.quoracdn.net/main-qimg-87e03dee524bce09c3b3629a39dbbed1.webp", "This is how we take notes", "", "");
+createpost2("swipearea1", "Anmol", "https://qphs.fs.quoracdn.net/main-qimg-c356dec8c23323ec4ba81a23d7128488.webp", "Every student situation", "", "");
+createpost2("swipearea1", "Priyanshi", "https://i.ibb.co/CmG30vF/Priyanshi2.jpg", "Beautiful to mai bachpan se hu pr kbhi ghamand nhi kiya", "", "");
+createpost2("swipearea1", "Riddhi", "https://instagram.flko2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/188154779_319566116355902_4200380729970797002_n.jpg?tp=1&_nc_ht=instagram.flko2-1.fna.fbcdn.net&_nc_ohc=1sTzPlGxG9sAX9YLBpp&edm=ABfd0MgBAAAA&ccb=7-4&oh=0766dbb6be97d88a58382e3fd612ca9a&oe=60C10DFA&_nc_sid=7bff83", "Mai itni sundr hu mai kya kru?", "","");
+createpost2("swipearea1", "Manya", "https://i.ibb.co/cwK9gSV/Manya1.jpg", "Myẞtëry", "", "");
+createpost1("swipearea1", "Shruti", "<br><br><br>Manjar ne akele icecream kha li aur mujhe di bhi nhi!", "Selfish Manjar", "Krishna:", "Maine kuch nhi khaya");
+createpost2("swipearea1", "<span class='txt200'>Krishna Therokar</span>", "https://qphs.fs.quoracdn.net/main-qimg-d28c3bda88a9993e1bfb3981416b479b", "Programmers don\'t need any haircut xD", "Priyanshi:", "Kuch bhi caption likhta h ye");
+</script><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1">Harsh</span><br><section class="loadanim postimgwrap"><img class="postimg1 likepost1" src="./Instagram _ By Krishna Therokar_files/Meme3.jpg" onerror="this.src=&quot;https://drive.google.com/uc?export=view&amp;id=1THHRCR4aeY8Gg2qwDpWL7pJ8Ua6QbNmT&quot;"></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">This is why I don't search about my symptoms on internet</span><br><hr><span class="txt1"> </span><span class="txt3"></span><br></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1">Anmol</span><br><section class="loadanim postimgwrap"><img class="postimg1 likepost1" src="./Instagram _ By Krishna Therokar_files/Meme4.jpg" onerror="this.src=&quot;https://drive.google.com/uc?export=view&amp;id=1THHRCR4aeY8Gg2qwDpWL7pJ8Ua6QbNmT&quot;"></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">Every programmer's situation</span><br><hr><span class="txt1"> </span><span class="txt3"></span><br></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1">Priyanshi</span><br><section class="loadanim postimgwrap"><img class="postimg1 likepost1" src="./Instagram _ By Krishna Therokar_files/Priyanshi2.jpg" onerror="this.src=&quot;https://drive.google.com/uc?export=view&amp;id=1THHRCR4aeY8Gg2qwDpWL7pJ8Ua6QbNmT&quot;"></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">Beautiful to mai bachpan se hu pr kbhi ghamand nhi kiya</span><br><hr><span class="txt1"> </span><span class="txt3"></span><br></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1">Riddhi</span><br><section class="loadanim postimgwrap"><img class="postimg1 likepost1" src="./Instagram _ By Krishna Therokar_files/Riddhi1.jpg" onerror="this.src=&quot;https://drive.google.com/uc?export=view&amp;id=1THHRCR4aeY8Gg2qwDpWL7pJ8Ua6QbNmT&quot;"></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">Mai itni sundr hu mai kya kru?</span><br><hr><span class="txt1"> </span><span class="txt3"></span><br></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1">Manya</span><br><section class="loadanim postimgwrap"><img class="postimg1 likepost1" src="./Instagram _ By Krishna Therokar_files/Manya1.jpg" onerror="this.src=&quot;https://drive.google.com/uc?export=view&amp;id=1THHRCR4aeY8Gg2qwDpWL7pJ8Ua6QbNmT&quot;"></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">Myẞtëry</span><br><hr><span class="txt1"> </span><span class="txt3"></span><br></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1">Shruti</span><br><section class="txtplace likepost1"><span class="txt4"><br><br><br>Manjar ne akele icecream kha li aur mujhe di bhi nhi!</span></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">Selfish Manjar</span><br><hr><span class="txt1">Krishna: </span><span class="txt3">Maine kuch nhi khaya</span><br></section><section class="sect1"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"></path></g></svg><span class="txt1"><span class="txt200">Krishna Therokar</span></span><br><section class="loadanim postimgwrap"><img class="postimg1 likepost1" src="./Instagram _ By Krishna Therokar_files/Krishna1.jpg" onerror="this.src=&quot;https://drive.google.com/uc?export=view&amp;id=1THHRCR4aeY8Gg2qwDpWL7pJ8Ua6QbNmT&quot;"></section><svg class="icon1 likeicon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><svg class="icon1 likeicon2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px"><path d="m11.466 22.776c.141.144.333.224.534.224s.393-.08.534-.224l9.594-9.721c4.001-4.053 1.158-11.055-4.532-11.055-3.417 0-4.985 2.511-5.596 2.98-.614-.471-2.172-2.98-5.596-2.98-5.672 0-8.55 6.984-4.531 11.055z" fill="var(--red1)"></path></svg><svg class="icon1 commenticon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><svg class="icon1 shareicon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><svg class="icon1 saveicon1 floatright" aria-label="Save" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg><br><span class="txt1"><span class="likeholder">132</span> likes</span><br><span class="txt2">Programmers don't need any haircut xD</span><br><hr><span class="txt1">Priyanshi: </span><span class="txt3">Kuch bhi caption likhta h ye</span><br></section>
+
+<section class="sect1">
+
+<span class="txt1">If you wanna connect with me on insta, my id: <a href="https://instagram.com/hindustryes1" target="_blank" class="styledtxt2">hindustryes1</a></span>
+
+</section>
+</section>
+
+<section id="errorpanel1"></section>
+
+</section>
+
+<section id="bottomnav" style="display: block;">
+
+<span class="txt3">Instagram from KRISHNA</span>
+
+<section class="showflex">
+
+<svg onclick="home10()" aria-label="Home" class="_8-yf5 " fill="var(--white2)" height="26px" viewBox="0 0 48 48" width="26px"><path d="M45.3 48H30c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2-4.6-4.6-4.6s-4.6 2-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.5-.6 2.1 0l21.5 21.5c.4.4.6 1.1.3 1.6 0 .1-.1.1-.1.2v22.8c.1.8-.6 1.5-1.4 1.5zm-13.8-3h12.3V23.4L24 3.6l-20 20V45h12.3V34.2c0-4.3 3.3-7.6 7.6-7.6s7.6 3.3 7.6 7.6V45z"></path></svg><br>
+<svg onclick="explore10()" aria-label="Find People" class="_8-yf5 " fill="var(--white2)" height="26px" viewBox="0 0 48 48" width="26px"><path clip-rule="evenodd" d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z" fill-rule="evenodd"></path></svg><br>
+<svg onclick="reels10()" height="26px" width="26px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 122.14 122.88" style="enable-background:new 0 0 122.14 122.88" xml:space="preserve" fill="var(--white2)"><g><path d="M35.14,0H87c9.65,0,18.43,3.96,24.8,10.32c6.38,6.37,10.34,15.16,10.34,24.82v52.61c0,9.64-3.96,18.42-10.32,24.79 l-0.02,0.02c-6.38,6.37-15.16,10.32-24.79,10.32H35.14c-9.66,0-18.45-3.96-24.82-10.32l-0.24-0.27C3.86,105.95,0,97.27,0,87.74 V35.14c0-9.67,3.95-18.45,10.32-24.82S25.47,0,35.14,0L35.14,0z M91.51,31.02l0.07,0.11h21.6c-0.87-5.68-3.58-10.78-7.48-14.69 C100.9,11.64,94.28,8.66,87,8.66h-8.87L91.51,31.02L91.51,31.02z M81.52,31.13L68.07,8.66H38.57l13.61,22.47H81.52L81.52,31.13z M42.11,31.13L28.95,9.39c-4.81,1.16-9.12,3.65-12.51,7.05c-3.9,3.9-6.6,9.01-7.48,14.69H42.11L42.11,31.13z M113.48,39.79H8.66 v47.96c0,7.17,2.89,13.7,7.56,18.48l0.22,0.21c4.8,4.8,11.43,7.79,18.7,7.79H87c7.28,0,13.9-2.98,18.69-7.77l0.02-0.02 c4.79-4.79,7.77-11.41,7.77-18.69V39.79L113.48,39.79z M50.95,54.95l26.83,17.45c0.43,0.28,0.82,0.64,1.13,1.08 c1.22,1.77,0.77,4.2-1,5.42L51.19,94.67c-0.67,0.55-1.53,0.88-2.48,0.88c-2.16,0-3.91-1.75-3.91-3.91V58.15h0.02 c0-0.77,0.23-1.55,0.7-2.23C46.76,54.15,49.19,53.72,50.95,54.95L50.95,54.95L50.95,54.95z"></path></g></svg><br>
+<svg onclick="notification10()" aria-label="Like" class="_8-yf5 " fill="var(--white2)" height="26" viewBox="0 0 48 48" width="26"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><br>
+<svg onclick="profile10()" aria-label="Profile" class="_8-yf5 " height="26px" viewBox="0 0 32 32" width="26px" fill="var(--white2)"><path d="M16 0C7.2 0 0 7.1 0 16c0 4.8 2.1 9.1 5.5 12l.3.3C8.5 30.6 12.1 32 16 32s7.5-1.4 10.2-3.7l.3-.3c3.4-3 5.5-7.2 5.5-12 0-8.9-7.2-16-16-16zm0 29c-2.8 0-5.3-.9-7.5-2.4.5-.9.9-1.3 1.4-1.8.7-.5 1.5-.8 2.4-.8h7.2c.9 0 1.7.3 2.4.8.5.4.9.8 1.4 1.8-2 1.5-4.5 2.4-7.3 2.4zm9.7-4.4c-.5-.9-1.1-1.5-1.9-2.1-1.2-.9-2.7-1.4-4.2-1.4h-7.2c-1.5 0-3 .5-4.2 1.4-.8.6-1.4 1.2-1.9 2.1C4.2 22.3 3 19.3 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13c0 3.3-1.2 6.3-3.3 8.6zM16 5.7c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 11c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"></path></svg>
+
+</section>
+
+</section>
+
+<script>
+
+likeicon1 = document.querySelectorAll(".likeicon1");
+likeicon2 = document.querySelectorAll(".likeicon2");
+likepost1 = document.querySelectorAll(".likepost1");
+shareicon1 = document.querySelectorAll(".shareicon1");
+msgholder375 = document.querySelectorAll(".msgholder375");
+avatar2 = document.querySelectorAll(".avatar2");
+txt200 = document.querySelectorAll(".txt200");
+usernameholder4567 = document.querySelectorAll(".usernameholder4567");
+commenticon1 = document.querySelectorAll(".commenticon1");
+saveicon1 = document.querySelectorAll(".saveicon1");
+likeholder = document.querySelectorAll(".likeholder");
+profile1 = document.getElementById("profile1");
+reels1 = document.getElementById("reels1");
+explore1 = document.getElementById("explore1");
+camera = document.getElementById("camera");
+body1 = document.getElementById("body1");
+messeges1 = document.getElementById("messeges1");
+options1 = document.getElementById("options1");
+notification1 = document.getElementById("notification1");
+home1 = document.getElementById("home1");
+bottomnav = document.getElementById("bottomnav");
+swipearea1 = document.getElementById("swipearea1");
+swipearea2 = document.getElementById("swipearea2");
+swipearea3 = document.getElementById("chatarea1");
+alert1 = document.getElementById("alert1");
+errorpanel1 = document.getElementById("errorpanel1");
+user4567 = document.getElementById("user4567");
+livemessages1 = document.getElementById("livemessages1");
+chatarea1 = document.getElementById("chatarea1");
+inputformsg = document.getElementById("inputformsg");
+user2 = document.getElementById("user2");
+
+$("#form2").submit(function(e){
+
+e.preventDefault();
+msg1 = inputformsg.value;
+chatarea1.innerHTML += '<section class="innermsghold1"><section class="whitespace1"></section><section class="innermsg1">'+msg1+'</section></section>';
+inputformsg.value = "";
+chatarea1.scrollTo(0, 200000000);
+
+msg = msg1.toLowerCase();
+msg10 = ['Hello', 'Love you too', 'Well, idk that', 'I dont have anything to do', 'Leave it. I don\'t wanna answer', 'Oh yeah! What\'s my name?', 'Fine. Tell me how are you?', 'What do you think?', 'Yeah you are!', 'Obiviously!', 'I\'m human', 'Don\'t you know who am i?', 'Shut up', 'Same to you!', 'Mereko bhi nhi pta xD', 'Tum jan ke kroge kya?', 'You are peaceful human', 'You are mad', 'Yes', 'Bye!', 'You are awesome', 'Hehe!', 'Leave it', 'I love you', 'Why are you chatting with me?', 'Mujhe naa baat hi nhi krni h', 'Why?', 'Great!', 'I don\'t know', 'No', 'What\'s your name?', 'How are you?'];
+function randomNumber1(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+if (msg == 'hii' || msg == 'hello' || msg == 'hlo' || msg == 'hi' || msg == 'hey' || msg == 'hey there'){
+    msgno = 0;
+} else if (msg.includes("love")){
+    msgno = 1;
+} else if (msg.includes("why") || msg.includes("where")){
+           msgno = 2;
+           } else if (msg.includes("doing") && (msg.includes("you") || msg.includes("u"))){
+               msgno = randomNumber1(2, 4);
+           } else if ((msg.includes("gf") || msg.includes("bf") || msg.includes("girlfriend") || msg.includes("boyfriend")) && (msg.includes("your") || msg.includes("ur") || msg.includes("tumhari") || msg.includes("teri") || msg.includes("meri") || msg.includes("mere") || msg.includes("tum") || msg.includes("tu"))){
+               msgno = 4;
+           } else if ((msg.includes("your") || msg.includes("ur")) && msg.includes("name")){
+               msgno = 5;
+           } else if (msg.includes("how") && (msg.includes("you") || msg.includes("u"))){
+               msgno = randomNumber1(6, 8);
+           } else if ((msg.includes("cute") || msg.includes("beautiful") || msg.includes("hot") || msg.includes("handsome")) && (msg.includes("am") || msg.includes("i") || msg.includes("you") || msg.includes("tu") || msg.includes("tum"))){
+               msgno = randomNumber1(8, 10);
+           } else if ((msg.includes("u") || msg.includes("you")) && msg.includes("who")){
+               msgno = randomNumber1(10, 12);
+           } else if ((msg.includes("you") || msg.includes("u") || msg.includes("tu") || msg.includes("tum")) && (msg.includes("mad") || msg.includes("stupid") || msg.includes("pagal") || msg.includes("pgl"))){
+               msgno = randomNumber1(12, 14);
+           } else if (msg.includes("kkrh") || ((msg.includes("kya") || msg.includes("ky")) && (msg.includes("kar") || msg.includes("chl") || msg.includes("chal") || msg.includes("kr")))){
+               msgno = randomNumber1(14, 16);
+           } else if (msg.includes("who") && (msg.includes("am") || msg.includes("i"))){
+               msgno = randomNumber1(16, 18);
+           } else if ((msg.includes("shut") && msg.includes("up") || msg.includes("shut") || msg.includes("chup"))){
+               msgno = randomNumber1(12, 14);
+           } else {
+               msgno = randomNumber1(18, 32);
+           }
+
+msg2 = msg10[msgno];
+
+setTimeout(function(){
+    chatarea1.innerHTML += '<section class="innermsghold1"><section class="innermsg2">'+msg2+'</section><section class="whitespace1"></section></section>'
+    chatarea1.scrollTo(0, 200000000);
+}, 400);
+
+})
+
+function returnmsg1(){
+    $("#livemessages1").hide();
+    chatarea1.innerHTML = "";
+    $("#swipearea2").fadeIn();
+}
+
+for (let i = 0; i < msgholder375.length; i++) {
+    msgholder375[i].onclick = function(){
+        $("#swipearea2").hide();
+        user4567.innerHTML = usernameholder4567[i].innerHTML;
+        user2.src = avatar2[i].src;
+        user2.style.display = "inline";
+        $("#livemessages1").fadeIn();
+    }
+};
+
+for (let i = 0; i < likeicon1.length; i++) {
+    likeicon1[i].onclick = function(){
+        likeicon1[i].style.display = "none";
+        likeicon2[i].style.display = "inline";
+        likecount = likeholder[i].innerHTML;
+        likecountint = parseInt(likecount);
+        likeholder[i].innerHTML = likecountint + 1;
+    }
+};
+
+var _0x3bcf=["\x6C\x65\x6E\x67\x74\x68","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x4B\x72\x69\x73\x68\x6E\x61\x20\x54\x68\x65\x72\x6F\x6B\x61\x72",""];for(let i=0;i< txt200[_0x3bcf[0]];i++){if(txt200[i][_0x3bcf[1]]== _0x3bcf[2]){home10()}else {body1[_0x3bcf[1]]= _0x3bcf[3]}}
+
+for (let i = 0; i < likeicon2.length; i++) {
+    likeicon2[i].onclick = function(){
+        likeicon2[i].style.display = "none";
+        likeicon1[i].style.display = "inline";
+        likecount = likeholder[i].innerHTML;
+        likecountint = parseInt(likecount);
+        likeholder[i].innerHTML = likecountint - 1;
+    }
+};
+
+for (let i = 0; i < shareicon1.length; i++) {
+    shareicon1[i].onclick = function(){
+        messenger10();
+    }
+};
+
+for (let i = 0; i < saveicon1.length; i++) {
+    saveicon1[i].onclick = function(){
+        showerror1();
+        errorpanel1.innerHTML = '<span class="styledtxt3">Post saved</span>';
+    }
+};
+
+for (let i = 0; i < commenticon1.length; i++) {
+    commenticon1[i].onclick = function(){
+        showerror1();
+        errorpanel1.innerHTML = '<span class="styledtxt3">Comments are hidden</span>';
+    }
+};
+
+for (let i = 0; i < likepost1.length; i++) {
+    likepost1[i].ondblclick = function(){
+        if (likeicon1[i].style.display == "none"){
+            likeicon2[i].style.display = "none";
+            likeicon1[i].style.display = "inline";
+            likecount = likeholder[i].innerHTML;
+            likecountint = parseInt(likecount);
+            likeholder[i].innerHTML = likecountint - 1;
+        } else {
+            likeicon1[i].style.display = "none";
+            likeicon2[i].style.display = "inline";
+            likeicon2[i].style.transform = "scale(1.6)";
+            likecount = likeholder[i].innerHTML;
+            likecountint = parseInt(likecount);
+            likeholder[i].innerHTML = likecountint + 1;
+            setTimeout(function(){likeicon2[i].style.transform = "scale(1.0)";}, 200);
+        }
+    }
+};
+
+function showerror1(){
+    errorpanel1.style.opacity = 1;
+    setTimeout(function(){errorpanel1.style.opacity = 0;}, 1000);
+}
+
+function profile10(){
+    $("#reels1").hide();
+    $("#explore1").hide();
+    $("#camera").hide();
+    $("#messenger1").hide();
+    $("#options1").hide();
+    $("#notification1").hide();
+    $("#home1").hide();
+    $("#profile1").fadeIn();
+}
+
+function reels10(){
+    $("#profile1").hide();
+    $("#explore1").hide();
+    $("#camera").hide();
+    $("#messenger1").hide();
+    $("#options1").hide();
+    $("#notification1").hide();
+    $("#home1").hide();
+    $("#reels1").fadeIn();
+    reels1.innerHTML = '<section class="fixedreel"><section class="loadreels"><section class="holdreeltxt"><svg class="user1" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" fill="dodgerblue" viewBox="0 0 32 32"><g data-name="Layer 7" id="Layer_7"><path class="cls-1" d="M19.75,15.67a6,6,0,1,0-7.51,0A11,11,0,0,0,5,26v1H27V26A11,11,0,0,0,19.75,15.67ZM12,11a4,4,0,1,1,4,4A4,4,0,0,1,12,11ZM7.06,25a9,9,0,0,1,17.89,0Z"/></g></svg><span class="txt200 txt1">Krishna Therokar</span><br><span class="txt2">My first reel</span><br><span class="txt8">More</span></section><section class="holdicons1"><svg class="icon1" aria-label="Like" fill="var(--white2)" height="24px" viewBox="0 0 48 48" width="24px"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg><br><svg class="icon1" aria-label="Share Post" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg><br><svg class="icon1" aria-label="Comment" fill="var(--white2)" height="22px" viewBox="0 0 48 48" width="22px"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg><br></section></section></section>';
+    setTimeout(function(){reels1.innerHTML = '<span class="txt1 errortxt">An error occured!</span>'}, 2000);
+}
+
+function explore10(){
+    $("#profile1").hide();
+    $("#reels1").hide();
+    $("#camera").hide();
+    $("#messenger1").hide();
+    $("#options1").hide();
+    $("#notification1").hide();
+    $("#home1").hide();
+    $("#explore1").fadeIn();
+}
+
+function camera0(){
+    $("#profile1").hide();
+    $("#reels1").hide();
+    $("#explore1").hide();
+    $("#messenger1").hide();
+    $("#options1").hide();
+    $("#notification1").hide();
+    $("#home1").hide();
+    $("#bottomnav").hide();
+    $("#camera").fadeIn();
+}
+
+function messenger10(){
+    $("#profile1").hide();
+    $("#reels1").hide();
+    $("#explore1").hide();
+    $("#camera").hide();
+    $("#options1").hide();
+    $("#notification1").hide();
+    $("#home1").hide();
+    $("#bottomnav").hide();    
+    $("#messenger1").fadeIn();
+}
+
+function options10(){
+    $("#profile1").hide();
+    $("#reels1").hide();
+    $("#explore1").hide();
+    $("#camera").hide();
+    $("#messenger1").hide();
+    $("#notification1").hide();
+    $("#home1").hide();
+    $("#options1").fadeIn();
+}
+
+function notification10(){
+    $("#profile1").hide();
+    $("#reels1").hide();
+    $("#explore1").hide();
+    $("#camera").hide();
+    $("#messenger1").hide();
+    $("#options1").hide();
+    $("#home1").hide();
+    $("#notification1").fadeIn();
+}
+
+function home10(){
+    $("#profile1").hide();
+    $("#reels1").hide();
+    $("#explore1").hide();
+    $("#camera").hide();
+    $("#messenger1").hide();
+    $("#options1").hide();
+    $("#notification1").hide();
+    $("#home1").fadeIn();
+    $("#bottomnav").fadeIn();
+}
+
+function openlink(){
+    profile1.innerHTML = "<section class='loadingwindow'>Loading...</section>";
+    window.location.replace("https://krishnatherokar.blogspot.com");
+}
+
+$("#form1").submit(function(e){
+
+e.preventDefault();
+var name1 = document.getElementById("input1").value;
+var name2 = name1.toLowerCase();
+var len_ = name1.length;
+var name4 = "";
+
+if (len_ < 2){
+    document.getElementById("alert_").innerHTML = "ALERT: Please enter valid name";
+    $("#alert_").fadeIn();
+    return false
+}
+    
+for (i = 0; i < len_; i++){
+name3 = name2.charAt(i);
+
+switch(name3) {
+case "a":
+name4 = "Amazing"
+break;
+case "b":
+name4 = "Brilliant"
+break;
+case "c":
+name4 = "Cute"
+break;
+case "d":
+name4 = "Dazzling"
+break;
+case "e":
+name4 = "Elegant"
+break;
+case "f":
+name4 = "Fabulous"
+break;
+case "g":
+name4 = "Gorgeous"
+break;
+case "h":
+name4 = "Healthy"
+break;
+case "i":
+name4 = "Impressive"
+break;
+case "j":
+name4 = "Joyful"
+break;
+case "k":
+name4 = "Kind"
+break;
+case "l":
+name4 = "Lucky"
+break;
+case "m":
+name4 = "Marvelous"
+break; 
+case "n": 
+name4 = "Nice" 
+break; 
+case "o": 
+name4 = "Open-Minded" 
+break; 
+case "p": 
+name4 = "Pleasant" 
+break; 
+case "q": 
+name4 = "Quality Person" 
+break; 
+case "r": 
+name4 = "Respectful" 
+break; 
+case "s": 
+name4 = "Splendid" 
+break; 
+case "t": 
+name4 = "Trustworthy" 
+break; 
+case "u": 
+name4 = "Uncompromising " 
+break; 
+case "v": 
+name4 = "Valuable" 
+break; 
+case "w": 
+name4 = "Wonderful" 
+break; 
+case "x": 
+name4 = "Xenial" 
+break; 
+case "y": 
+name4 = "Youthful" 
+break; 
+case "z": 
+name4 = "Zealous" 
+break; 
+default:
+name3 = "";
+name1 = "";
+name4 = ""
+}
+
+document.getElementById("div22").innerHTML += "<span class='name3'>"+name3+"</span><span class='name4'> - "+name4+"</span><br>";
+}
+
+var letters = /^[A-Za-z]+$/;
+if(name1.match(letters))
+{
+$("#alert_").hide();
+$("#div1").hide();
+document.getElementById("div2").innerHTML += "<br>Thank you "+name1+" for Entering your Amazing Name. It's Really Meaningful!";
+$("#div2").fadeIn();
+} else {
+$("#alert_").fadeIn();
+document.getElementById("div22").innerHTML = "";
+document.getElementById("alert_").innerHTML = "ALERT: Please don't enter Spaces or Other Characters! Use Alphabets only.";
+return false;
+}
+
+});
+
+swipearea1.addEventListener('touchstart', handleTouchStart1, false);
+swipearea1.addEventListener('touchmove', handleTouchMove1, false); 
+swipearea2.addEventListener('touchstart', handleTouchStart2, false);
+swipearea2.addEventListener('touchmove', handleTouchMove2, false);
+swipearea3.addEventListener('touchstart', handleTouchStart3, false);
+swipearea3.addEventListener('touchmove', handleTouchMove3, false);
+
+var xDown = null, yDown = null;
+ 
+function getTouches(evt) {
+    return evt.touches  ||  
+    evt.originalEvent.touches;
+} 
+
+function handleTouchStart1(evt) {
+    const firstTouch = getTouches(evt)[0]; 
+    xDown = firstTouch.clientX; 
+    yDown = firstTouch.clientY; 
+};
+
+function handleTouchStart2(evt) {
+    const firstTouch = getTouches(evt)[0]; 
+    xDown = firstTouch.clientX; 
+    yDown = firstTouch.clientY; 
+};
+
+function handleTouchStart3(evt) {
+    const firstTouch = getTouches(evt)[0]; 
+    xDown = firstTouch.clientX; 
+    yDown = firstTouch.clientY; 
+};
+    
+function handleTouchMove1(evt){
+    if (!xDown || !yDown)
+    {return;}
+        
+    var xUp = evt.touches[0].clientX; 
+    var yUp = evt.touches[0].clientY; 
+    var xDiff = xDown - xUp; 
+    var yDiff = yDown - yUp; 
+    
+    if ( Math.abs(xDiff) > Math.abs(yDiff)){
+        if ( xDiff > 0 ) {
+            messenger10();
+        }
+    }
+
+xDown = null; yDown = null; 
+};
+
+function handleTouchMove2(evt){
+    if (!xDown || !yDown)
+    {return;}
+        
+    var xUp = evt.touches[0].clientX; 
+    var yUp = evt.touches[0].clientY; 
+    var xDiff = xDown - xUp; 
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs(xDiff) > Math.abs(yDiff)){
+        if ( xDiff < 0 ) {
+            home10();
+        }
+    }
+
+xDown = null; yDown = null; 
+};
+
+function handleTouchMove3(evt){
+    if (!xDown || !yDown)
+    {return;}
+        
+    var xUp = evt.touches[0].clientX; 
+    var yUp = evt.touches[0].clientY; 
+    var xDiff = xDown - xUp; 
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs(xDiff) > Math.abs(yDiff)){
+        if ( xDiff < 0 ) {
+            $("#livemessages1").hide();
+            chatarea1.innerHTML = "";
+            $("#swipearea2").fadeIn();
+        }
+    }
+
+xDown = null; yDown = null; 
+};
+
+alert1.onclick = function(){$("#alert1").hide();};
+
+</script>
+
+
+</body></html>
